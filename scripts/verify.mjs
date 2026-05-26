@@ -83,6 +83,20 @@ for (const id of requiredAesthetics) {
 }
 if (aesthetics.default !== "quiet-editorial") fail("default aesthetic must be quiet-editorial");
 
+const heroImages = new Set();
+for (const aesthetic of aesthetics.aesthetics) {
+  const imagery = aesthetic.canonical?.imagery;
+  if (!imagery?.src) fail(`${aesthetic.id} missing canonical.imagery.src`);
+  if (!imagery?.alt) fail(`${aesthetic.id} missing canonical.imagery.alt`);
+  if (!imagery.src.startsWith("/assets/aesthetics/")) {
+    fail(`${aesthetic.id} hero image must live under /assets/aesthetics/`);
+  }
+  if (!imagery.src.endsWith(".webp")) fail(`${aesthetic.id} hero image must be WebP`);
+  if (!existsSync(join(root, imagery.src.slice(1)))) fail(`${aesthetic.id} hero image missing: ${imagery.src}`);
+  heroImages.add(imagery.src);
+}
+if (heroImages.size !== aesthetics.aesthetics.length) fail("each aesthetic must use a distinct hero image");
+
 function walk(dir, out = []) {
   for (const entry of readdirSync(dir)) {
     if ([".git", ".vercel", "node_modules", "dist", "coverage"].includes(entry)) continue;
@@ -109,8 +123,15 @@ const index = readFileSync(join(root, "index.html"), "utf8");
 for (const id of requiredAesthetics) {
   if (!readFileSync(aestheticsPath, "utf8").includes(id)) fail(`aesthetic ${id} not reachable`);
 }
-for (const path of ["/schema/0.1/composition", "/data/aesthetics.json", "/site.js", "/styles.css"]) {
+for (const path of [
+  "/schema/0.1/composition",
+  "/data/aesthetics.json",
+  "/site.js",
+  "/styles.css",
+  "/assets/aesthetics/hero-quiet-editorial.webp",
+]) {
   if (!index.includes(path)) fail(`index does not reference ${path}`);
 }
+if (!index.includes('id="hero-image"')) fail("index missing switchable hero image");
 
 console.log("mosvera.io static verification passed");

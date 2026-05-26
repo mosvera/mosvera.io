@@ -8,6 +8,7 @@ const modeSummary = document.querySelector("#mode-summary");
 const metricMode = document.querySelector("#metric-mode");
 const compositionJson = document.querySelector("#composition-json");
 const compiledTokens = document.querySelector("#compiled-tokens");
+const heroImage = document.querySelector("#hero-image");
 
 const densityScale = {
   compact: { space: "0.82rem", section: "4rem" },
@@ -57,6 +58,8 @@ function compileSiteTheme(aesthetic) {
     "--hero-saturation": c.imagery.saturation,
     "--hero-contrast": c.imagery.contrast,
     "--hero-blend": c.imagery.blend,
+    "--hero-image": `url("${c.imagery.src}")`,
+    "--hero-treatment": c.imagery.treatment,
     "--max-width": c.layout.max_width,
   };
 }
@@ -89,6 +92,8 @@ function applyAesthetic(aesthetic) {
   modeLabel.textContent = aesthetic.label;
   modeSummary.textContent = aesthetic.summary;
   metricMode.textContent = aesthetic.id;
+  heroImage.src = aesthetic.canonical.imagery.src;
+  heroImage.alt = aesthetic.canonical.imagery.alt;
   compositionJson.textContent = JSON.stringify(aesthetic.composition, null, 2);
   compiledTokens.textContent = toCss(tokens);
   setHash(aesthetic.id);

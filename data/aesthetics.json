@@ -49,6 +49,8 @@
         },
         "imagery": {
           "treatment": "paper_field",
+          "src": "/assets/aesthetics/hero-quiet-editorial.webp",
+          "alt": "Warm paper-toned Mosvera tesserae arranged as a calm editorial composition.",
           "blend": "normal",
           "saturation": "0.92",
           "contrast": "1.02"
@@ -107,6 +109,8 @@
         },
         "imagery": {
           "treatment": "schematic",
+          "src": "/assets/aesthetics/hero-technical-manual.webp",
+          "alt": "High-key schematic Mosvera tesserae rendered like a technical reference plate.",
           "blend": "multiply",
           "saturation": "0.72",
           "contrast": "1.14"
@@ -165,6 +169,8 @@
         },
         "imagery": {
           "treatment": "spotlit",
+          "src": "/assets/aesthetics/hero-cinematic-lab.webp",
+          "alt": "Spotlit high-contrast Mosvera tesserae arranged for a cinematic lab surface.",
           "blend": "screen",
           "saturation": "1.08",
           "contrast": "1.22"
@@ -223,6 +229,8 @@
         },
         "imagery": {
           "treatment": "tabletop_model",
+          "src": "/assets/aesthetics/hero-claymation-playful-builder.webp",
+          "alt": "Tactile clay-like Mosvera tesserae under warm builder-table light.",
           "blend": "normal",
           "saturation": "1.12",
           "contrast": "0.96"
