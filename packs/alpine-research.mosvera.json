@@ -1,0 +1,70 @@
+{
+  "$schema": "https://mosvera.io/schema/0.1/aesthetic-pack",
+  "description": "Glacial whites, topographic lines, cold blue accents, and field-station precision.",
+  "documents": {
+    "compositions": {
+      "alpine-research": {
+        "$schema": "https://mosvera.io/schema/0.1/composition",
+        "base": "alpine-research-base",
+        "id": "alpine-research"
+      }
+    },
+    "modifiers": {},
+    "palettes": {},
+    "templates": {
+      "alpine-research-base": {
+        "$schema": "https://mosvera.io/schema/0.1/template",
+        "id": "alpine-research-base",
+        "imagery": {
+          "alt": "Alpine Research Mosvera aesthetic thumbnail with topographic field treatment.",
+          "blend": "normal",
+          "contrast": "1.02",
+          "saturation": "1.04",
+          "src": "/assets/aesthetics/hero-alpine-research.webp",
+          "treatment": "topographic_field"
+        },
+        "layout": {
+          "density": "compact",
+          "max_width": "1240px",
+          "radius": "3px",
+          "shadow": "0 18px 55px rgba(18, 32, 42, 0.14)"
+        },
+        "motion": {
+          "duration": "150ms",
+          "pace": "crisp"
+        },
+        "palette": {
+          "accent": "#2d80c3",
+          "accent_2": "#d94f3d",
+          "background": "#edf4f5",
+          "border": "#a9bcc4",
+          "code_bg": "#0c151c",
+          "code_ink": "#e5f6ff",
+          "ink": "#12202a",
+          "muted": "#5a6c75",
+          "surface": "#ffffff",
+          "surface_alt": "#d8e5e8"
+        },
+        "typography": {
+          "body": "Hanken Grotesk",
+          "display": "IBM Plex Mono",
+          "mono": "IBM Plex Mono",
+          "scale": "compact"
+        },
+        "voice": {
+          "body": "Alpine Research turns dense information into something like a snow survey: crisp, structured, and outdoors-aware.",
+          "eyebrow": "Field station mode",
+          "headline": "A cold, exacting map for research systems."
+        }
+      }
+    }
+  },
+  "entrypoint": {
+    "id": "alpine-research",
+    "kind": "composition"
+  },
+  "id": "alpine-research",
+  "kind": "mosvera.aesthetic_pack",
+  "name": "Alpine Research",
+  "version": "0.1"
+}

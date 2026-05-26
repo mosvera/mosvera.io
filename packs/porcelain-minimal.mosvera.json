@@ -1,0 +1,70 @@
+{
+  "$schema": "https://mosvera.io/schema/0.1/aesthetic-pack",
+  "description": "Cool porcelain whites, cobalt hairlines, and restrained detail for premium quiet surfaces.",
+  "documents": {
+    "compositions": {
+      "porcelain-minimal": {
+        "$schema": "https://mosvera.io/schema/0.1/composition",
+        "base": "porcelain-minimal-base",
+        "id": "porcelain-minimal"
+      }
+    },
+    "modifiers": {},
+    "palettes": {},
+    "templates": {
+      "porcelain-minimal-base": {
+        "$schema": "https://mosvera.io/schema/0.1/template",
+        "id": "porcelain-minimal-base",
+        "imagery": {
+          "alt": "Porcelain Minimal Mosvera aesthetic thumbnail with porcelain cobalt treatment.",
+          "blend": "normal",
+          "contrast": "1.02",
+          "saturation": "1.08",
+          "src": "/assets/aesthetics/hero-porcelain-minimal.webp",
+          "treatment": "porcelain_cobalt"
+        },
+        "layout": {
+          "density": "comfortable",
+          "max_width": "1140px",
+          "radius": "6px",
+          "shadow": "0 22px 70px rgba(18, 24, 25, 0.12)"
+        },
+        "motion": {
+          "duration": "260ms",
+          "pace": "quiet"
+        },
+        "palette": {
+          "accent": "#2458a7",
+          "accent_2": "#9a6a4f",
+          "background": "#f5f7f3",
+          "border": "#c8d2cf",
+          "code_bg": "#071012",
+          "code_ink": "#e9f3ff",
+          "ink": "#121819",
+          "muted": "#5a6667",
+          "surface": "#ffffff",
+          "surface_alt": "#e3e8e4"
+        },
+        "typography": {
+          "body": "Hanken Grotesk",
+          "display": "Fraunces",
+          "mono": "IBM Plex Mono",
+          "scale": "editorial"
+        },
+        "voice": {
+          "body": "Porcelain Minimal keeps the site calm and exact, like cobalt marks on a white ceramic field.",
+          "eyebrow": "Porcelain quiet",
+          "headline": "A minimal system with blue hairline precision."
+        }
+      }
+    }
+  },
+  "entrypoint": {
+    "id": "porcelain-minimal",
+    "kind": "composition"
+  },
+  "id": "porcelain-minimal",
+  "kind": "mosvera.aesthetic_pack",
+  "name": "Porcelain Minimal",
+  "version": "0.1"
+}

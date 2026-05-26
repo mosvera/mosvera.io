@@ -1,0 +1,70 @@
+{
+  "$schema": "https://mosvera.io/schema/0.1/aesthetic-pack",
+  "description": "Layered green glass, humid highlights, and living-organic structure for softer technical systems.",
+  "documents": {
+    "compositions": {
+      "botanical-glasshouse": {
+        "$schema": "https://mosvera.io/schema/0.1/composition",
+        "base": "botanical-glasshouse-base",
+        "id": "botanical-glasshouse"
+      }
+    },
+    "modifiers": {},
+    "palettes": {},
+    "templates": {
+      "botanical-glasshouse-base": {
+        "$schema": "https://mosvera.io/schema/0.1/template",
+        "id": "botanical-glasshouse-base",
+        "imagery": {
+          "alt": "Botanical Glasshouse Mosvera aesthetic thumbnail with greenhouse glass treatment.",
+          "blend": "normal",
+          "contrast": "1.02",
+          "saturation": "1.08",
+          "src": "/assets/aesthetics/hero-botanical-glasshouse.webp",
+          "treatment": "greenhouse_glass"
+        },
+        "layout": {
+          "density": "comfortable",
+          "max_width": "1180px",
+          "radius": "10px",
+          "shadow": "0 22px 64px rgba(47, 159, 107, 0.18)"
+        },
+        "motion": {
+          "duration": "300ms",
+          "pace": "breathing"
+        },
+        "palette": {
+          "accent": "#2f9f6b",
+          "accent_2": "#e6a83a",
+          "background": "#edf6e8",
+          "border": "#a9c6a2",
+          "code_bg": "#0f1a12",
+          "code_ink": "#eaffdb",
+          "ink": "#17251a",
+          "muted": "#5f7463",
+          "surface": "#fbfff7",
+          "surface_alt": "#d7ead1"
+        },
+        "typography": {
+          "body": "Hanken Grotesk",
+          "display": "Fraunces",
+          "mono": "IBM Plex Mono",
+          "scale": "editorial"
+        },
+        "voice": {
+          "body": "Botanical Glasshouse makes Mosvera feel alive without losing the grid underneath the leaves.",
+          "eyebrow": "Living systems mode",
+          "headline": "A glasshouse for calm technical growth."
+        }
+      }
+    }
+  },
+  "entrypoint": {
+    "id": "botanical-glasshouse",
+    "kind": "composition"
+  },
+  "id": "botanical-glasshouse",
+  "kind": "mosvera.aesthetic_pack",
+  "name": "Botanical Glasshouse",
+  "version": "0.1"
+}

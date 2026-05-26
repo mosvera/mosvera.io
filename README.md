@@ -8,6 +8,11 @@ re-theme immediately. Production adopters bring Mosvera into their own
 platforms; this repo is the reference public example, not a hosted runtime
 dependency.
 
+The 25-pack gallery source of truth lives in
+[`mosvera/examples`](https://github.com/mosvera/examples/tree/main/packs).
+This repo mirrors `packs/gallery.json` and the gallery WebP assets into the
+static deploy bundle.
+
 ## Local Preview
 
 ```sh
@@ -32,6 +37,7 @@ and automation.
 ## Verification
 
 ```sh
+node scripts/sync-gallery.mjs ../mosvera-examples
 node scripts/verify.mjs
 ```
 

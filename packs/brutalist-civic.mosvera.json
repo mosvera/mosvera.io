@@ -1,0 +1,70 @@
+{
+  "$schema": "https://mosvera.io/schema/0.1/aesthetic-pack",
+  "description": "Concrete gray, safety red, large blocks, and public-infrastructure seriousness.",
+  "documents": {
+    "compositions": {
+      "brutalist-civic": {
+        "$schema": "https://mosvera.io/schema/0.1/composition",
+        "base": "brutalist-civic-base",
+        "id": "brutalist-civic"
+      }
+    },
+    "modifiers": {},
+    "palettes": {},
+    "templates": {
+      "brutalist-civic-base": {
+        "$schema": "https://mosvera.io/schema/0.1/template",
+        "id": "brutalist-civic-base",
+        "imagery": {
+          "alt": "Brutalist Civic Mosvera aesthetic thumbnail with concrete civic treatment.",
+          "blend": "normal",
+          "contrast": "1.02",
+          "saturation": "1.04",
+          "src": "/assets/aesthetics/hero-brutalist-civic.webp",
+          "treatment": "concrete_civic"
+        },
+        "layout": {
+          "density": "compact",
+          "max_width": "1260px",
+          "radius": "0px",
+          "shadow": "0 8px 0 rgba(21, 21, 21, 0.22)"
+        },
+        "motion": {
+          "duration": "110ms",
+          "pace": "direct"
+        },
+        "palette": {
+          "accent": "#d3362d",
+          "accent_2": "#2f6f88",
+          "background": "#d7d5ce",
+          "border": "#8c8981",
+          "code_bg": "#0d0d0d",
+          "code_ink": "#efeadc",
+          "ink": "#151515",
+          "muted": "#55534d",
+          "surface": "#f1f0ea",
+          "surface_alt": "#bab8af"
+        },
+        "typography": {
+          "body": "Hanken Grotesk",
+          "display": "IBM Plex Mono",
+          "mono": "IBM Plex Mono",
+          "scale": "compact"
+        },
+        "voice": {
+          "body": "Brutalist Civic makes the site feel like signage on a serious public building: blunt, useful, and accountable.",
+          "eyebrow": "Public works mode",
+          "headline": "A concrete interface with civic authority."
+        }
+      }
+    }
+  },
+  "entrypoint": {
+    "id": "brutalist-civic",
+    "kind": "composition"
+  },
+  "id": "brutalist-civic",
+  "kind": "mosvera.aesthetic_pack",
+  "name": "Brutalist Civic",
+  "version": "0.1"
+}

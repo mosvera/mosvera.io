@@ -1,0 +1,70 @@
+{
+  "$schema": "https://mosvera.io/schema/0.1/aesthetic-pack",
+  "description": "Candy color, black outlines, chunky rhythm, and playful confidence for interactive experiences.",
+  "documents": {
+    "compositions": {
+      "arcade-pop": {
+        "$schema": "https://mosvera.io/schema/0.1/composition",
+        "base": "arcade-pop-base",
+        "id": "arcade-pop"
+      }
+    },
+    "modifiers": {},
+    "palettes": {},
+    "templates": {
+      "arcade-pop-base": {
+        "$schema": "https://mosvera.io/schema/0.1/template",
+        "id": "arcade-pop-base",
+        "imagery": {
+          "alt": "Arcade Pop Mosvera aesthetic thumbnail with arcade cabinet treatment.",
+          "blend": "normal",
+          "contrast": "1.02",
+          "saturation": "1.08",
+          "src": "/assets/aesthetics/hero-arcade-pop.webp",
+          "treatment": "arcade_cabinet"
+        },
+        "layout": {
+          "density": "roomy",
+          "max_width": "1160px",
+          "radius": "8px",
+          "shadow": "0 16px 0 rgba(255, 59, 141, 0.24)"
+        },
+        "motion": {
+          "duration": "170ms",
+          "pace": "pop"
+        },
+        "palette": {
+          "accent": "#ff3b8d",
+          "accent_2": "#2cc9ff",
+          "background": "#fff0f4",
+          "border": "#ffc94d",
+          "code_bg": "#140d14",
+          "code_ink": "#ffe7f1",
+          "ink": "#1f1520",
+          "muted": "#6b5268",
+          "surface": "#ffffff",
+          "surface_alt": "#ffd6e2"
+        },
+        "typography": {
+          "body": "Hanken Grotesk",
+          "display": "Fraunces",
+          "mono": "IBM Plex Mono",
+          "scale": "friendly"
+        },
+        "voice": {
+          "body": "Arcade Pop makes the site feel bright, responsive, and alive, like a cabinet full of documentation.",
+          "eyebrow": "Press start mode",
+          "headline": "A playable interface with real structure underneath."
+        }
+      }
+    }
+  },
+  "entrypoint": {
+    "id": "arcade-pop",
+    "kind": "composition"
+  },
+  "id": "arcade-pop",
+  "kind": "mosvera.aesthetic_pack",
+  "name": "Arcade Pop",
+  "version": "0.1"
+}

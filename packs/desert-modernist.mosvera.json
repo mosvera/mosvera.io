@@ -1,0 +1,70 @@
+{
+  "$schema": "https://mosvera.io/schema/0.1/aesthetic-pack",
+  "description": "Sun-washed plaster, adobe shadow, cactus green, and restrained resort-modern geometry.",
+  "documents": {
+    "compositions": {
+      "desert-modernist": {
+        "$schema": "https://mosvera.io/schema/0.1/composition",
+        "base": "desert-modernist-base",
+        "id": "desert-modernist"
+      }
+    },
+    "modifiers": {},
+    "palettes": {},
+    "templates": {
+      "desert-modernist-base": {
+        "$schema": "https://mosvera.io/schema/0.1/template",
+        "id": "desert-modernist-base",
+        "imagery": {
+          "alt": "Desert Modernist Mosvera aesthetic thumbnail with desert plaster treatment.",
+          "blend": "normal",
+          "contrast": "1.02",
+          "saturation": "1.08",
+          "src": "/assets/aesthetics/hero-desert-modernist.webp",
+          "treatment": "desert_plaster"
+        },
+        "layout": {
+          "density": "roomy",
+          "max_width": "1160px",
+          "radius": "7px",
+          "shadow": "0 20px 50px rgba(117, 95, 72, 0.20)"
+        },
+        "motion": {
+          "duration": "240ms",
+          "pace": "sunlit"
+        },
+        "palette": {
+          "accent": "#c56f36",
+          "accent_2": "#4c7f59",
+          "background": "#efe0c3",
+          "border": "#b58a60",
+          "code_bg": "#241a13",
+          "code_ink": "#ffe8bd",
+          "ink": "#2c2118",
+          "muted": "#755f48",
+          "surface": "#fff2d6",
+          "surface_alt": "#d8b98d"
+        },
+        "typography": {
+          "body": "Hanken Grotesk",
+          "display": "Fraunces",
+          "mono": "IBM Plex Mono",
+          "scale": "editorial"
+        },
+        "voice": {
+          "body": "Desert Modernist gives the site dry air, simple forms, and a grounded sense of place.",
+          "eyebrow": "Sunlit modernism",
+          "headline": "A warm, spare system with long shadows."
+        }
+      }
+    }
+  },
+  "entrypoint": {
+    "id": "desert-modernist",
+    "kind": "composition"
+  },
+  "id": "desert-modernist",
+  "kind": "mosvera.aesthetic_pack",
+  "name": "Desert Modernist",
+  "version": "0.1"
+}

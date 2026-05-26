@@ -1,0 +1,70 @@
+{
+  "$schema": "https://mosvera.io/schema/0.1/aesthetic-pack",
+  "description": "Powder-gray moon dust, hazard amber, and machined surfaces for heavy engineering stories.",
+  "documents": {
+    "compositions": {
+      "lunar-industrial": {
+        "$schema": "https://mosvera.io/schema/0.1/composition",
+        "base": "lunar-industrial-base",
+        "id": "lunar-industrial"
+      }
+    },
+    "modifiers": {},
+    "palettes": {},
+    "templates": {
+      "lunar-industrial-base": {
+        "$schema": "https://mosvera.io/schema/0.1/template",
+        "id": "lunar-industrial-base",
+        "imagery": {
+          "alt": "Lunar Industrial Mosvera aesthetic thumbnail with moon foundry treatment.",
+          "blend": "normal",
+          "contrast": "1.02",
+          "saturation": "1.04",
+          "src": "/assets/aesthetics/hero-lunar-industrial.webp",
+          "treatment": "moon_foundry"
+        },
+        "layout": {
+          "density": "compact",
+          "max_width": "1240px",
+          "radius": "3px",
+          "shadow": "0 10px 0 rgba(21, 23, 19, 0.18)"
+        },
+        "motion": {
+          "duration": "150ms",
+          "pace": "mechanical"
+        },
+        "palette": {
+          "accent": "#e7a822",
+          "accent_2": "#426b7c",
+          "background": "#d8d9d2",
+          "border": "#8f9188",
+          "code_bg": "#11120f",
+          "code_ink": "#f2eddb",
+          "ink": "#151713",
+          "muted": "#5c6059",
+          "surface": "#f4f3ec",
+          "surface_alt": "#bfc0b8"
+        },
+        "typography": {
+          "body": "Hanken Grotesk",
+          "display": "IBM Plex Mono",
+          "mono": "IBM Plex Mono",
+          "scale": "compact"
+        },
+        "voice": {
+          "body": "This pack makes the interface feel machined, dusty, and operational, like instructions printed on pressure-rated metal.",
+          "eyebrow": "Off-world fabrication",
+          "headline": "A lunar factory floor for aesthetic systems."
+        }
+      }
+    }
+  },
+  "entrypoint": {
+    "id": "lunar-industrial",
+    "kind": "composition"
+  },
+  "id": "lunar-industrial",
+  "kind": "mosvera.aesthetic_pack",
+  "name": "Lunar Industrial",
+  "version": "0.1"
+}

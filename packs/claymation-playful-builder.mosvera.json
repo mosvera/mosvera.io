@@ -1,0 +1,70 @@
+{
+  "$schema": "https://mosvera.io/schema/0.1/aesthetic-pack",
+  "description": "Tactile, warm, handmade, and constructive: proof that Mosvera can carry real personality.",
+  "documents": {
+    "compositions": {
+      "claymation-playful-builder": {
+        "$schema": "https://mosvera.io/schema/0.1/composition",
+        "base": "claymation-playful-builder-base",
+        "id": "claymation-playful-builder"
+      }
+    },
+    "modifiers": {},
+    "palettes": {},
+    "templates": {
+      "claymation-playful-builder-base": {
+        "$schema": "https://mosvera.io/schema/0.1/template",
+        "id": "claymation-playful-builder-base",
+        "imagery": {
+          "alt": "Claymation Playful Builder Mosvera aesthetic thumbnail with tabletop model treatment.",
+          "blend": "normal",
+          "contrast": "1.02",
+          "saturation": "1.08",
+          "src": "/assets/aesthetics/hero-claymation-playful-builder.webp",
+          "treatment": "tabletop_model"
+        },
+        "layout": {
+          "density": "roomy",
+          "max_width": "1160px",
+          "radius": "8px",
+          "shadow": "0 18px 0 rgba(96, 63, 39, 0.26)"
+        },
+        "motion": {
+          "duration": "260ms",
+          "pace": "bouncy"
+        },
+        "palette": {
+          "accent": "#d45f3f",
+          "accent_2": "#2f8f9d",
+          "background": "#f6e7cc",
+          "border": "#c99a68",
+          "code_bg": "#2b2119",
+          "code_ink": "#ffe3bc",
+          "ink": "#2a2118",
+          "muted": "#695946",
+          "surface": "#fff3dc",
+          "surface_alt": "#ead2ad"
+        },
+        "typography": {
+          "body": "Hanken Grotesk",
+          "display": "Fraunces",
+          "mono": "IBM Plex Mono",
+          "scale": "friendly"
+        },
+        "voice": {
+          "body": "This mode keeps the spec serious while the surface becomes handmade, constructive, and a little mischievous.",
+          "eyebrow": "Tactile builder mode",
+          "headline": "Same architecture, built out of warm clay and shop light."
+        }
+      }
+    }
+  },
+  "entrypoint": {
+    "id": "claymation-playful-builder",
+    "kind": "composition"
+  },
+  "id": "claymation-playful-builder",
+  "kind": "mosvera.aesthetic_pack",
+  "name": "Claymation Playful Builder",
+  "version": "0.1"
+}

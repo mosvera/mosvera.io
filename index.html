@@ -38,7 +38,7 @@
         <a href="https://github.com/mosvera/spec">Spec</a>
         <a href="https://github.com/mosvera/runtime">Runtime</a>
         <a href="https://github.com/mosvera/mcp/releases/latest">MCP</a>
-        <a href="https://github.com/mosvera/spec/tree/main/examples/packs">Packs</a>
+        <a href="https://github.com/mosvera/examples/tree/main/packs">Packs</a>
         <a href="https://github.com/mosvera/examples">Examples</a>
         <a href="/schema/0.1/composition">Schemas</a>
       </nav>
@@ -61,7 +61,7 @@
           <div class="action-row" aria-label="Primary links">
             <a class="command-link primary" href="https://github.com/mosvera/spec">Read the spec</a>
             <a class="command-link" href="https://github.com/mosvera/mcp/releases/download/v0.1.9/mosvera-mcp-0.1.9.mcpb">Install Claude bundle</a>
-            <a class="command-link" href="https://raw.githubusercontent.com/mosvera/spec/main/examples/packs/claymation-playful-builder.mosvera.json">Download sample pack</a>
+            <a class="command-link" href="/packs/claymation-playful-builder.mosvera.json" download>Download sample pack</a>
           </div>
         </div>
 
@@ -149,9 +149,9 @@
       <section class="pack-gallery" aria-labelledby="pack-gallery-title">
         <div class="section-heading">
           <p class="eyebrow">Aesthetic packs</p>
-          <h2 id="pack-gallery-title">Download a v1 aesthetic and bring it into your registry.</h2>
+          <h2 id="pack-gallery-title">Browse 25 aesthetics and bring one into your registry.</h2>
           <p>
-            Each `.mosvera.json` pack carries a named aesthetic as portable registry documents. Download one, preview the import in Claude Desktop, then save it locally and resolve or compile it with Mosvera.
+            Each `.mosvera.json` pack carries a named aesthetic as portable registry documents. Preview a tile, apply it to this site, download the pack, then import it locally and resolve or compile it with Mosvera.
           </p>
         </div>
 
@@ -161,59 +161,7 @@
           <span>Resolve/compile aesthetic</span>
         </div>
 
-        <div class="pack-grid">
-          <article>
-            <img src="/assets/aesthetics/hero-quiet-editorial.webp" alt="" width="640" height="427" loading="lazy" />
-            <div>
-              <span class="metric-label">quiet-editorial</span>
-              <h3>Quiet Editorial</h3>
-              <p>A calm editorial Mosvera aesthetic for public specification and documentation surfaces.</p>
-            </div>
-            <div class="pack-actions">
-              <a class="command-link primary" href="https://raw.githubusercontent.com/mosvera/spec/main/examples/packs/quiet-editorial.mosvera.json">Download pack</a>
-              <a class="command-link" href="https://github.com/mosvera/spec/blob/main/examples/packs/quiet-editorial.mosvera.json">View source</a>
-            </div>
-          </article>
-
-          <article>
-            <img src="/assets/aesthetics/hero-technical-manual.webp" alt="" width="640" height="427" loading="lazy" />
-            <div>
-              <span class="metric-label">technical-manual</span>
-              <h3>Technical Manual</h3>
-              <p>A compact, schematic Mosvera aesthetic for implementation reference and technical documentation.</p>
-            </div>
-            <div class="pack-actions">
-              <a class="command-link primary" href="https://raw.githubusercontent.com/mosvera/spec/main/examples/packs/technical-manual.mosvera.json">Download pack</a>
-              <a class="command-link" href="https://github.com/mosvera/spec/blob/main/examples/packs/technical-manual.mosvera.json">View source</a>
-            </div>
-          </article>
-
-          <article>
-            <img src="/assets/aesthetics/hero-cinematic-lab.webp" alt="" width="640" height="427" loading="lazy" />
-            <div>
-              <span class="metric-label">cinematic-lab</span>
-              <h3>Cinematic Lab</h3>
-              <p>A high-contrast, image-forward Mosvera aesthetic for visual research and dramatic product surfaces.</p>
-            </div>
-            <div class="pack-actions">
-              <a class="command-link primary" href="https://raw.githubusercontent.com/mosvera/spec/main/examples/packs/cinematic-lab.mosvera.json">Download pack</a>
-              <a class="command-link" href="https://github.com/mosvera/spec/blob/main/examples/packs/cinematic-lab.mosvera.json">View source</a>
-            </div>
-          </article>
-
-          <article>
-            <img src="/assets/aesthetics/hero-claymation-playful-builder.webp" alt="" width="640" height="427" loading="lazy" />
-            <div>
-              <span class="metric-label">claymation-playful-builder</span>
-              <h3>Claymation Playful Builder</h3>
-              <p>A tactile, warm, rounded, handmade Mosvera aesthetic for constructive product and documentation surfaces.</p>
-            </div>
-            <div class="pack-actions">
-              <a class="command-link primary" href="https://raw.githubusercontent.com/mosvera/spec/main/examples/packs/claymation-playful-builder.mosvera.json">Download pack</a>
-              <a class="command-link" href="https://github.com/mosvera/spec/blob/main/examples/packs/claymation-playful-builder.mosvera.json">View source</a>
-            </div>
-          </article>
-        </div>
+        <div class="pack-grid" id="pack-grid" aria-live="polite"></div>
 
         <div class="pack-instructions">
           <p class="eyebrow">Claude Desktop prompt</p>
@@ -313,7 +261,7 @@ Use Mosvera to resolve claymation-playful-builder and compile it into CSS variab
           <pre class="inline-code" id="install-snippet"><code>npm install @mosvera/runtime
 pip install mosvera
 npm install -g @mosvera/mcp
-curl -O https://raw.githubusercontent.com/mosvera/spec/main/examples/packs/claymation-playful-builder.mosvera.json</code></pre>
+curl -O https://mosvera.io/packs/claymation-playful-builder.mosvera.json</code></pre>
         </div>
       </section>
 

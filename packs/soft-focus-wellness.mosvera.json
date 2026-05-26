@@ -1,0 +1,70 @@
+{
+  "$schema": "https://mosvera.io/schema/0.1/aesthetic-pack",
+  "description": "Diffuse blush, moss, and linen tones for calmer human-care and coaching surfaces.",
+  "documents": {
+    "compositions": {
+      "soft-focus-wellness": {
+        "$schema": "https://mosvera.io/schema/0.1/composition",
+        "base": "soft-focus-wellness-base",
+        "id": "soft-focus-wellness"
+      }
+    },
+    "modifiers": {},
+    "palettes": {},
+    "templates": {
+      "soft-focus-wellness-base": {
+        "$schema": "https://mosvera.io/schema/0.1/template",
+        "id": "soft-focus-wellness-base",
+        "imagery": {
+          "alt": "Soft Focus Wellness Mosvera aesthetic thumbnail with diffuse linen treatment.",
+          "blend": "normal",
+          "contrast": "1.02",
+          "saturation": "1.08",
+          "src": "/assets/aesthetics/hero-soft-focus-wellness.webp",
+          "treatment": "diffuse_linen"
+        },
+        "layout": {
+          "density": "roomy",
+          "max_width": "1120px",
+          "radius": "12px",
+          "shadow": "0 24px 70px rgba(117, 104, 95, 0.16)"
+        },
+        "motion": {
+          "duration": "320ms",
+          "pace": "soft"
+        },
+        "palette": {
+          "accent": "#c97a72",
+          "accent_2": "#6f9b78",
+          "background": "#f5eadf",
+          "border": "#d0b9aa",
+          "code_bg": "#201917",
+          "code_ink": "#ffe9dc",
+          "ink": "#29211d",
+          "muted": "#75685f",
+          "surface": "#fff7ef",
+          "surface_alt": "#e6d7cb"
+        },
+        "typography": {
+          "body": "Hanken Grotesk",
+          "display": "Fraunces",
+          "mono": "IBM Plex Mono",
+          "scale": "friendly"
+        },
+        "voice": {
+          "body": "Soft Focus Wellness makes product surfaces feel humane, slower, and warmer without becoming vague.",
+          "eyebrow": "Gentle care mode",
+          "headline": "A soft-focus system that still knows its structure."
+        }
+      }
+    }
+  },
+  "entrypoint": {
+    "id": "soft-focus-wellness",
+    "kind": "composition"
+  },
+  "id": "soft-focus-wellness",
+  "kind": "mosvera.aesthetic_pack",
+  "name": "Soft Focus Wellness",
+  "version": "0.1"
+}

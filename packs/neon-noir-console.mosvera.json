@@ -1,0 +1,70 @@
+{
+  "$schema": "https://mosvera.io/schema/0.1/aesthetic-pack",
+  "description": "A rain-slick command surface with magenta voltage, cyan glass, and deep cinematic shadow.",
+  "documents": {
+    "compositions": {
+      "neon-noir-console": {
+        "$schema": "https://mosvera.io/schema/0.1/composition",
+        "base": "neon-noir-console-base",
+        "id": "neon-noir-console"
+      }
+    },
+    "modifiers": {},
+    "palettes": {},
+    "templates": {
+      "neon-noir-console-base": {
+        "$schema": "https://mosvera.io/schema/0.1/template",
+        "id": "neon-noir-console-base",
+        "imagery": {
+          "alt": "Neon Noir Console Mosvera aesthetic thumbnail with neon reflection treatment.",
+          "blend": "screen",
+          "contrast": "1.02",
+          "saturation": "1.04",
+          "src": "/assets/aesthetics/hero-neon-noir-console.webp",
+          "treatment": "neon_reflection"
+        },
+        "layout": {
+          "density": "compact",
+          "max_width": "1220px",
+          "radius": "4px",
+          "shadow": "0 20px 70px rgba(255, 46, 136, 0.24)"
+        },
+        "motion": {
+          "duration": "180ms",
+          "pace": "electric"
+        },
+        "palette": {
+          "accent": "#ff2e88",
+          "accent_2": "#00d6ff",
+          "background": "#08070d",
+          "border": "#3f315d",
+          "code_bg": "#05040a",
+          "code_ink": "#dff9ff",
+          "ink": "#f4f1ff",
+          "muted": "#9b90b8",
+          "surface": "#13111f",
+          "surface_alt": "#201b33"
+        },
+        "typography": {
+          "body": "Hanken Grotesk",
+          "display": "IBM Plex Mono",
+          "mono": "IBM Plex Mono",
+          "scale": "compact"
+        },
+        "voice": {
+          "body": "This aesthetic turns product structure into a night interface: legible, high voltage, and a little dangerous.",
+          "eyebrow": "Signal in the rain",
+          "headline": "A console glowing through noir weather."
+        }
+      }
+    }
+  },
+  "entrypoint": {
+    "id": "neon-noir-console",
+    "kind": "composition"
+  },
+  "id": "neon-noir-console",
+  "kind": "mosvera.aesthetic_pack",
+  "name": "Neon Noir Console",
+  "version": "0.1"
+}

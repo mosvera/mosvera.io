@@ -1,0 +1,70 @@
+{
+  "$schema": "https://mosvera.io/schema/0.1/aesthetic-pack",
+  "description": "Synthetic foliage, circuit traces, lime bloom, and black soil for hybrid nature-machine systems.",
+  "documents": {
+    "compositions": {
+      "cybernetic-garden": {
+        "$schema": "https://mosvera.io/schema/0.1/composition",
+        "base": "cybernetic-garden-base",
+        "id": "cybernetic-garden"
+      }
+    },
+    "modifiers": {},
+    "palettes": {},
+    "templates": {
+      "cybernetic-garden-base": {
+        "$schema": "https://mosvera.io/schema/0.1/template",
+        "id": "cybernetic-garden-base",
+        "imagery": {
+          "alt": "Cybernetic Garden Mosvera aesthetic thumbnail with synthetic foliage treatment.",
+          "blend": "screen",
+          "contrast": "1.02",
+          "saturation": "1.08",
+          "src": "/assets/aesthetics/hero-cybernetic-garden.webp",
+          "treatment": "synthetic_foliage"
+        },
+        "layout": {
+          "density": "roomy",
+          "max_width": "1180px",
+          "radius": "9px",
+          "shadow": "0 25px 80px rgba(124, 255, 107, 0.16)"
+        },
+        "motion": {
+          "duration": "280ms",
+          "pace": "growing"
+        },
+        "palette": {
+          "accent": "#7cff6b",
+          "accent_2": "#41d1c2",
+          "background": "#07100c",
+          "border": "#365240",
+          "code_bg": "#040806",
+          "code_ink": "#e7ffcb",
+          "ink": "#ecffe8",
+          "muted": "#9cb59d",
+          "surface": "#101b16",
+          "surface_alt": "#1b2d24"
+        },
+        "typography": {
+          "body": "Hanken Grotesk",
+          "display": "Fraunces",
+          "mono": "IBM Plex Mono",
+          "scale": "friendly"
+        },
+        "voice": {
+          "body": "Cybernetic Garden lets the system feel alive and technical at once, with glowing growth rings and clean structure.",
+          "eyebrow": "Machine garden",
+          "headline": "An interface where circuitry grows leaves."
+        }
+      }
+    }
+  },
+  "entrypoint": {
+    "id": "cybernetic-garden",
+    "kind": "composition"
+  },
+  "id": "cybernetic-garden",
+  "kind": "mosvera.aesthetic_pack",
+  "name": "Cybernetic Garden",
+  "version": "0.1"
+}

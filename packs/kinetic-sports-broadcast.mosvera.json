@@ -1,0 +1,70 @@
+{
+  "$schema": "https://mosvera.io/schema/0.1/aesthetic-pack",
+  "description": "Scoreboard contrast, motion graphics, electric green, and fast editorial pacing.",
+  "documents": {
+    "compositions": {
+      "kinetic-sports-broadcast": {
+        "$schema": "https://mosvera.io/schema/0.1/composition",
+        "base": "kinetic-sports-broadcast-base",
+        "id": "kinetic-sports-broadcast"
+      }
+    },
+    "modifiers": {},
+    "palettes": {},
+    "templates": {
+      "kinetic-sports-broadcast-base": {
+        "$schema": "https://mosvera.io/schema/0.1/template",
+        "id": "kinetic-sports-broadcast-base",
+        "imagery": {
+          "alt": "Kinetic Sports Broadcast Mosvera aesthetic thumbnail with broadcast package treatment.",
+          "blend": "screen",
+          "contrast": "1.02",
+          "saturation": "1.04",
+          "src": "/assets/aesthetics/hero-kinetic-sports-broadcast.webp",
+          "treatment": "broadcast_package"
+        },
+        "layout": {
+          "density": "compact",
+          "max_width": "1260px",
+          "radius": "4px",
+          "shadow": "0 18px 0 rgba(183, 255, 42, 0.18)"
+        },
+        "motion": {
+          "duration": "130ms",
+          "pace": "kinetic"
+        },
+        "palette": {
+          "accent": "#b7ff2a",
+          "accent_2": "#28a8ff",
+          "background": "#0b1014",
+          "border": "#41525d",
+          "code_bg": "#05080a",
+          "code_ink": "#edffd1",
+          "ink": "#f7fff4",
+          "muted": "#abc0b7",
+          "surface": "#151d24",
+          "surface_alt": "#22303a"
+        },
+        "typography": {
+          "body": "Hanken Grotesk",
+          "display": "IBM Plex Mono",
+          "mono": "IBM Plex Mono",
+          "scale": "compact"
+        },
+        "voice": {
+          "body": "Kinetic Sports Broadcast turns Mosvera into a fast graphic package: sharp, loud, and built for scanning.",
+          "eyebrow": "Live package",
+          "headline": "A broadcast surface with speed and scorekeeping."
+        }
+      }
+    }
+  },
+  "entrypoint": {
+    "id": "kinetic-sports-broadcast",
+    "kind": "composition"
+  },
+  "id": "kinetic-sports-broadcast",
+  "kind": "mosvera.aesthetic_pack",
+  "name": "Kinetic Sports Broadcast",
+  "version": "0.1"
+}

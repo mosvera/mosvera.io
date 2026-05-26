@@ -1,9 +1,13 @@
 // SPDX-License-Identifier: Apache-2.0
 
+import { createHash } from "node:crypto";
 import { existsSync, readFileSync, readdirSync, statSync } from "node:fs";
-import { join, relative } from "node:path";
+import { dirname, join, relative, resolve } from "node:path";
+import { fileURLToPath } from "node:url";
 
 const root = process.cwd();
+const here = dirname(fileURLToPath(import.meta.url));
+const examplesRoot = resolve(here, "..", "..", "mosvera-examples");
 
 const requiredSchemas = {
   common: "https://mosvera.io/schema/0.1/common",
@@ -21,10 +25,35 @@ const requiredAesthetics = [
   "technical-manual",
   "cinematic-lab",
   "claymation-playful-builder",
+  "neon-noir-console",
+  "botanical-glasshouse",
+  "lunar-industrial",
+  "ukiyo-e-interface",
+  "bauhaus-signal",
+  "desert-modernist",
+  "alpine-research",
+  "maximalist-zine",
+  "luxury-atelier",
+  "retro-future-terminal",
+  "oceanic-biolume",
+  "brutalist-civic",
+  "soft-focus-wellness",
+  "spacecraft-telemetry",
+  "museum-archive",
+  "arcade-pop",
+  "graphite-studio",
+  "stained-glass-fable",
+  "kinetic-sports-broadcast",
+  "cybernetic-garden",
+  "porcelain-minimal",
 ];
 
 const requiredPackUrls = requiredAesthetics.map(
-  (id) => `https://raw.githubusercontent.com/mosvera/spec/main/examples/packs/${id}.mosvera.json`,
+  (id) => `/packs/${id}.mosvera.json`,
+);
+
+const requiredSourceUrls = requiredAesthetics.map(
+  (id) => `https://github.com/mosvera/examples/blob/main/packs/${id}.mosvera.json`,
 );
 
 const quickstartUrl = "https://github.com/mosvera/spec/blob/main/docs/guides/10-minute-quickstart.md";
@@ -72,6 +101,10 @@ function fail(message) {
   throw new Error(message);
 }
 
+function sha256(path) {
+  return createHash("sha256").update(readFileSync(path)).digest("hex");
+}
+
 for (const path of forbiddenPaths) {
   if (existsSync(join(root, path))) fail(`forbidden public path present: ${path}`);
 }
@@ -85,6 +118,22 @@ for (const [name, id] of Object.entries(requiredSchemas)) {
 
 const aestheticsPath = join(root, "data", "aesthetics.json");
 const aesthetics = JSON.parse(readFileSync(aestheticsPath, "utf8"));
+const examplesGalleryPath = join(examplesRoot, "packs", "gallery.json");
+if (existsSync(examplesGalleryPath)) {
+  const examplesGallery = JSON.parse(readFileSync(examplesGalleryPath, "utf8"));
+  const normalized = {
+    ...examplesGallery,
+    aesthetics: examplesGallery.aesthetics.map((aesthetic) => ({
+      ...aesthetic,
+      download_url: `/packs/${aesthetic.id}.mosvera.json`,
+    })),
+  };
+  if (JSON.stringify(aesthetics) !== JSON.stringify(normalized)) {
+    fail("data/aesthetics.json has drifted from ../mosvera-examples/packs/gallery.json");
+  }
+}
+if (aesthetics.count !== 25) fail(`gallery count is ${aesthetics.count}, expected 25`);
+if (aesthetics.aesthetics.length !== 25) fail(`gallery has ${aesthetics.aesthetics.length} aesthetics, expected 25`);
 const ids = new Set(aesthetics.aesthetics.map((aesthetic) => aesthetic.id));
 for (const id of requiredAesthetics) {
   if (!ids.has(id)) fail(`missing v1 aesthetic: ${id}`);
@@ -101,7 +150,26 @@ for (const aesthetic of aesthetics.aesthetics) {
   }
   if (!imagery.src.endsWith(".webp")) fail(`${aesthetic.id} hero image must be WebP`);
   if (!existsSync(join(root, imagery.src.slice(1)))) fail(`${aesthetic.id} hero image missing: ${imagery.src}`);
+  const exampleAsset = join(examplesRoot, "packs", "assets", `hero-${aesthetic.id}.webp`);
+  if (existsSync(exampleAsset) && sha256(join(root, imagery.src.slice(1))) !== sha256(exampleAsset)) {
+    fail(`${aesthetic.id} hero image has drifted from mosvera-examples`);
+  }
+  const sitePack = join(root, "packs", `${aesthetic.id}.mosvera.json`);
+  const examplePack = join(examplesRoot, "packs", `${aesthetic.id}.mosvera.json`);
+  if (!existsSync(sitePack)) fail(`${aesthetic.id} mirrored pack file missing`);
+  if (existsSync(examplePack) && sha256(sitePack) !== sha256(examplePack)) {
+    fail(`${aesthetic.id} mirrored pack file has drifted from mosvera-examples`);
+  }
   heroImages.add(imagery.src);
+  if (aesthetic.download_url !== `/packs/${aesthetic.id}.mosvera.json`) {
+    fail(`${aesthetic.id} download_url must point at a same-origin pack file`);
+  }
+  if (aesthetic.source_url !== `https://github.com/mosvera/examples/blob/main/packs/${aesthetic.id}.mosvera.json`) {
+    fail(`${aesthetic.id} source_url must point at mosvera/examples`);
+  }
+  for (const [name, color] of Object.entries(aesthetic.swatches ?? {})) {
+    if (!/^#[0-9a-f]{6}$/.test(color)) fail(`${aesthetic.id} swatch ${name} is not a lowercase hex color`);
+  }
 }
 if (heroImages.size !== aesthetics.aesthetics.length) fail("each aesthetic must use a distinct hero image");
 
@@ -128,15 +196,25 @@ for (const file of walk(root)) {
 }
 
 const index = readFileSync(join(root, "index.html"), "utf8");
+const siteJs = readFileSync(join(root, "site.js"), "utf8");
+const styles = readFileSync(join(root, "styles.css"), "utf8");
 for (const id of requiredAesthetics) {
   if (!readFileSync(aestheticsPath, "utf8").includes(id)) fail(`aesthetic ${id} not reachable`);
-  if (!index.includes(id)) fail(`index does not include pack gallery aesthetic: ${id}`);
+  if (!readFileSync(aestheticsPath, "utf8").includes(`hero-${id}.webp`)) fail(`aesthetic ${id} missing hero asset reference`);
 }
 for (const url of requiredPackUrls) {
-  if (!index.includes(url)) fail(`index does not include pack download URL: ${url}`);
+  if (!readFileSync(aestheticsPath, "utf8").includes(url)) fail(`gallery data does not include pack download URL: ${url}`);
+}
+for (const url of requiredSourceUrls) {
+  if (!readFileSync(aestheticsPath, "utf8").includes(url)) fail(`gallery data does not include pack source URL: ${url}`);
 }
 for (const phrase of ["Preview pack", "Import pack", "Resolve/compile aesthetic"]) {
   if (!index.includes(phrase)) fail(`index does not include pack workflow phrase: ${phrase}`);
+}
+for (const phrase of ["pack-grid", "Apply to site", "Download pack", "View source", "data-hex", "color-swatch", "swatch-row"]) {
+  if (!index.includes(phrase) && !siteJs.includes(phrase) && !styles.includes(phrase)) {
+    fail(`site does not include gallery UI phrase: ${phrase}`);
+  }
 }
 if (!index.includes(quickstartUrl)) fail("index does not link to the 10-minute quickstart");
 if (!index.includes(mcpBundleUrl)) fail("index does not link to the current MCP bundle");
@@ -168,5 +246,6 @@ for (const path of [
   if (!index.includes(path)) fail(`index does not reference ${path}`);
 }
 if (!index.includes('id="hero-image"')) fail("index missing switchable hero image");
+if (!index.includes('id="pack-grid"')) fail("index missing rendered pack gallery mount");
 
 console.log("mosvera.io static verification passed");

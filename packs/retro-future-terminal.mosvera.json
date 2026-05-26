@@ -1,0 +1,70 @@
+{
+  "$schema": "https://mosvera.io/schema/0.1/aesthetic-pack",
+  "description": "Amber phosphor, mint glow, and chunky terminal optimism from an imagined 1983 future.",
+  "documents": {
+    "compositions": {
+      "retro-future-terminal": {
+        "$schema": "https://mosvera.io/schema/0.1/composition",
+        "base": "retro-future-terminal-base",
+        "id": "retro-future-terminal"
+      }
+    },
+    "modifiers": {},
+    "palettes": {},
+    "templates": {
+      "retro-future-terminal-base": {
+        "$schema": "https://mosvera.io/schema/0.1/template",
+        "id": "retro-future-terminal-base",
+        "imagery": {
+          "alt": "Retro Future Terminal Mosvera aesthetic thumbnail with phosphor terminal treatment.",
+          "blend": "screen",
+          "contrast": "1.02",
+          "saturation": "1.04",
+          "src": "/assets/aesthetics/hero-retro-future-terminal.webp",
+          "treatment": "phosphor_terminal"
+        },
+        "layout": {
+          "density": "compact",
+          "max_width": "1220px",
+          "radius": "4px",
+          "shadow": "0 0 38px rgba(120, 240, 164, 0.18)"
+        },
+        "motion": {
+          "duration": "140ms",
+          "pace": "scanline"
+        },
+        "palette": {
+          "accent": "#ffb84d",
+          "accent_2": "#78f0a4",
+          "background": "#15160d",
+          "border": "#5b6234",
+          "code_bg": "#090a06",
+          "code_ink": "#eaffba",
+          "ink": "#f5ffd6",
+          "muted": "#adb681",
+          "surface": "#202313",
+          "surface_alt": "#30351c"
+        },
+        "typography": {
+          "body": "Hanken Grotesk",
+          "display": "IBM Plex Mono",
+          "mono": "IBM Plex Mono",
+          "scale": "compact"
+        },
+        "voice": {
+          "body": "Retro Future Terminal gives Mosvera a command-line soul with just enough amber optimism.",
+          "eyebrow": "Warm terminal future",
+          "headline": "A glowing interface from an alternate workstation timeline."
+        }
+      }
+    }
+  },
+  "entrypoint": {
+    "id": "retro-future-terminal",
+    "kind": "composition"
+  },
+  "id": "retro-future-terminal",
+  "kind": "mosvera.aesthetic_pack",
+  "name": "Retro Future Terminal",
+  "version": "0.1"
+}

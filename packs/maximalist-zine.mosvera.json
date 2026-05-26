@@ -1,0 +1,70 @@
+{
+  "$schema": "https://mosvera.io/schema/0.1/aesthetic-pack",
+  "description": "Cut-paper energy, loud contrast, and photocopy texture for expressive community surfaces.",
+  "documents": {
+    "compositions": {
+      "maximalist-zine": {
+        "$schema": "https://mosvera.io/schema/0.1/composition",
+        "base": "maximalist-zine-base",
+        "id": "maximalist-zine"
+      }
+    },
+    "modifiers": {},
+    "palettes": {},
+    "templates": {
+      "maximalist-zine-base": {
+        "$schema": "https://mosvera.io/schema/0.1/template",
+        "id": "maximalist-zine-base",
+        "imagery": {
+          "alt": "Maximalist Zine Mosvera aesthetic thumbnail with collage zine treatment.",
+          "blend": "normal",
+          "contrast": "1.02",
+          "saturation": "1.08",
+          "src": "/assets/aesthetics/hero-maximalist-zine.webp",
+          "treatment": "collage_zine"
+        },
+        "layout": {
+          "density": "roomy",
+          "max_width": "1140px",
+          "radius": "6px",
+          "shadow": "0 12px 0 rgba(240, 58, 119, 0.26)"
+        },
+        "motion": {
+          "duration": "190ms",
+          "pace": "jump_cut"
+        },
+        "palette": {
+          "accent": "#f03a77",
+          "accent_2": "#21a0a0",
+          "background": "#fff1d8",
+          "border": "#e0a72d",
+          "code_bg": "#16100f",
+          "code_ink": "#ffe9a8",
+          "ink": "#171114",
+          "muted": "#6f4b59",
+          "surface": "#fffaf2",
+          "surface_alt": "#f2c3d1"
+        },
+        "typography": {
+          "body": "Hanken Grotesk",
+          "display": "Fraunces",
+          "mono": "IBM Plex Mono",
+          "scale": "friendly"
+        },
+        "voice": {
+          "body": "Maximalist Zine lets Mosvera get loud: collage, color, and motion with the contract still intact.",
+          "eyebrow": "Cut and paste mode",
+          "headline": "A zine table with a working type system."
+        }
+      }
+    }
+  },
+  "entrypoint": {
+    "id": "maximalist-zine",
+    "kind": "composition"
+  },
+  "id": "maximalist-zine",
+  "kind": "mosvera.aesthetic_pack",
+  "name": "Maximalist Zine",
+  "version": "0.1"
+}

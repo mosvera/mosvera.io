@@ -1,0 +1,70 @@
+{
+  "$schema": "https://mosvera.io/schema/0.1/aesthetic-pack",
+  "description": "Deep ink, champagne metal, quiet shadows, and editorial restraint for premium product surfaces.",
+  "documents": {
+    "compositions": {
+      "luxury-atelier": {
+        "$schema": "https://mosvera.io/schema/0.1/composition",
+        "base": "luxury-atelier-base",
+        "id": "luxury-atelier"
+      }
+    },
+    "modifiers": {},
+    "palettes": {},
+    "templates": {
+      "luxury-atelier-base": {
+        "$schema": "https://mosvera.io/schema/0.1/template",
+        "id": "luxury-atelier-base",
+        "imagery": {
+          "alt": "Luxury Atelier Mosvera aesthetic thumbnail with atelier metal treatment.",
+          "blend": "screen",
+          "contrast": "1.12",
+          "saturation": "1.08",
+          "src": "/assets/aesthetics/hero-luxury-atelier.webp",
+          "treatment": "atelier_metal"
+        },
+        "layout": {
+          "density": "spacious",
+          "max_width": "1180px",
+          "radius": "5px",
+          "shadow": "0 30px 90px rgba(0, 0, 0, 0.45)"
+        },
+        "motion": {
+          "duration": "360ms",
+          "pace": "slow"
+        },
+        "palette": {
+          "accent": "#c9a45a",
+          "accent_2": "#7aa6a1",
+          "background": "#11100e",
+          "border": "#4a3f31",
+          "code_bg": "#080807",
+          "code_ink": "#fff2d2",
+          "ink": "#f7efe2",
+          "muted": "#c9bba7",
+          "surface": "#1d1a16",
+          "surface_alt": "#2d251d"
+        },
+        "typography": {
+          "body": "Hanken Grotesk",
+          "display": "Fraunces",
+          "mono": "IBM Plex Mono",
+          "scale": "large"
+        },
+        "voice": {
+          "body": "Luxury Atelier makes the interface feel intentional, expensive, and unhurried without losing its documentation spine.",
+          "eyebrow": "Private atelier",
+          "headline": "A precise surface with metal, shadow, and air."
+        }
+      }
+    }
+  },
+  "entrypoint": {
+    "id": "luxury-atelier",
+    "kind": "composition"
+  },
+  "id": "luxury-atelier",
+  "kind": "mosvera.aesthetic_pack",
+  "name": "Luxury Atelier",
+  "version": "0.1"
+}

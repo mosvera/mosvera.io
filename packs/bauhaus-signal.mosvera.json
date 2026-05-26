@@ -1,0 +1,70 @@
+{
+  "$schema": "https://mosvera.io/schema/0.1/aesthetic-pack",
+  "description": "Primary geometry, strong rhythm, and poster-like hierarchy for bold civic/product communication.",
+  "documents": {
+    "compositions": {
+      "bauhaus-signal": {
+        "$schema": "https://mosvera.io/schema/0.1/composition",
+        "base": "bauhaus-signal-base",
+        "id": "bauhaus-signal"
+      }
+    },
+    "modifiers": {},
+    "palettes": {},
+    "templates": {
+      "bauhaus-signal-base": {
+        "$schema": "https://mosvera.io/schema/0.1/template",
+        "id": "bauhaus-signal-base",
+        "imagery": {
+          "alt": "Bauhaus Signal Mosvera aesthetic thumbnail with primary geometry treatment.",
+          "blend": "normal",
+          "contrast": "1.12",
+          "saturation": "1.08",
+          "src": "/assets/aesthetics/hero-bauhaus-signal.webp",
+          "treatment": "primary_geometry"
+        },
+        "layout": {
+          "density": "comfortable",
+          "max_width": "1200px",
+          "radius": "0px",
+          "shadow": "0 16px 0 rgba(23, 23, 23, 0.18)"
+        },
+        "motion": {
+          "duration": "160ms",
+          "pace": "snappy"
+        },
+        "palette": {
+          "accent": "#d63230",
+          "accent_2": "#1769aa",
+          "background": "#f5f1dc",
+          "border": "#c9b33c",
+          "code_bg": "#101010",
+          "code_ink": "#f8efcc",
+          "ink": "#171717",
+          "muted": "#59564c",
+          "surface": "#fffdf0",
+          "surface_alt": "#e5dfc8"
+        },
+        "typography": {
+          "body": "Hanken Grotesk",
+          "display": "Fraunces",
+          "mono": "IBM Plex Mono",
+          "scale": "large"
+        },
+        "voice": {
+          "body": "Bauhaus Signal makes Mosvera feel like a modernist poster that learned to compile.",
+          "eyebrow": "Poster logic",
+          "headline": "A signal system built from circles, bars, and conviction."
+        }
+      }
+    }
+  },
+  "entrypoint": {
+    "id": "bauhaus-signal",
+    "kind": "composition"
+  },
+  "id": "bauhaus-signal",
+  "kind": "mosvera.aesthetic_pack",
+  "name": "Bauhaus Signal",
+  "version": "0.1"
+}

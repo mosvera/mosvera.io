@@ -1,0 +1,70 @@
+{
+  "$schema": "https://mosvera.io/schema/0.1/aesthetic-pack",
+  "description": "Black-panel instrumentation, orbital blue, and high-density readouts for mission-control systems.",
+  "documents": {
+    "compositions": {
+      "spacecraft-telemetry": {
+        "$schema": "https://mosvera.io/schema/0.1/composition",
+        "base": "spacecraft-telemetry-base",
+        "id": "spacecraft-telemetry"
+      }
+    },
+    "modifiers": {},
+    "palettes": {},
+    "templates": {
+      "spacecraft-telemetry-base": {
+        "$schema": "https://mosvera.io/schema/0.1/template",
+        "id": "spacecraft-telemetry-base",
+        "imagery": {
+          "alt": "Spacecraft Telemetry Mosvera aesthetic thumbnail with telemetry panel treatment.",
+          "blend": "screen",
+          "contrast": "1.02",
+          "saturation": "1.04",
+          "src": "/assets/aesthetics/hero-spacecraft-telemetry.webp",
+          "treatment": "telemetry_panel"
+        },
+        "layout": {
+          "density": "compact",
+          "max_width": "1280px",
+          "radius": "2px",
+          "shadow": "0 0 44px rgba(76, 201, 240, 0.16)"
+        },
+        "motion": {
+          "duration": "150ms",
+          "pace": "orbital"
+        },
+        "palette": {
+          "accent": "#4cc9f0",
+          "accent_2": "#f7b731",
+          "background": "#080b12",
+          "border": "#33445c",
+          "code_bg": "#03050a",
+          "code_ink": "#d8edff",
+          "ink": "#eff6ff",
+          "muted": "#9fb0c6",
+          "surface": "#121827",
+          "surface_alt": "#1c2638"
+        },
+        "typography": {
+          "body": "Hanken Grotesk",
+          "display": "IBM Plex Mono",
+          "mono": "IBM Plex Mono",
+          "scale": "compact"
+        },
+        "voice": {
+          "body": "Spacecraft Telemetry makes every panel feel instrumented, crisp, and ready for launch-day scrutiny.",
+          "eyebrow": "Mission control",
+          "headline": "A telemetry wall for aesthetic infrastructure."
+        }
+      }
+    }
+  },
+  "entrypoint": {
+    "id": "spacecraft-telemetry",
+    "kind": "composition"
+  },
+  "id": "spacecraft-telemetry",
+  "kind": "mosvera.aesthetic_pack",
+  "name": "Spacecraft Telemetry",
+  "version": "0.1"
+}

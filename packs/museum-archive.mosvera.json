@@ -1,0 +1,70 @@
+{
+  "$schema": "https://mosvera.io/schema/0.1/aesthetic-pack",
+  "description": "Catalog paper, archival labels, burgundy marks, and careful hierarchy for collections and records.",
+  "documents": {
+    "compositions": {
+      "museum-archive": {
+        "$schema": "https://mosvera.io/schema/0.1/composition",
+        "base": "museum-archive-base",
+        "id": "museum-archive"
+      }
+    },
+    "modifiers": {},
+    "palettes": {},
+    "templates": {
+      "museum-archive-base": {
+        "$schema": "https://mosvera.io/schema/0.1/template",
+        "id": "museum-archive-base",
+        "imagery": {
+          "alt": "Museum Archive Mosvera aesthetic thumbnail with archive label treatment.",
+          "blend": "normal",
+          "contrast": "1.02",
+          "saturation": "1.08",
+          "src": "/assets/aesthetics/hero-museum-archive.webp",
+          "treatment": "archive_label"
+        },
+        "layout": {
+          "density": "comfortable",
+          "max_width": "1160px",
+          "radius": "3px",
+          "shadow": "0 16px 50px rgba(34, 26, 20, 0.14)"
+        },
+        "motion": {
+          "duration": "240ms",
+          "pace": "careful"
+        },
+        "palette": {
+          "accent": "#8f2f3f",
+          "accent_2": "#3f6b63",
+          "background": "#eee6d6",
+          "border": "#bdad96",
+          "code_bg": "#17120e",
+          "code_ink": "#f5e6c8",
+          "ink": "#221a14",
+          "muted": "#6a5e50",
+          "surface": "#fffaf0",
+          "surface_alt": "#dbcfbb"
+        },
+        "typography": {
+          "body": "Hanken Grotesk",
+          "display": "Fraunces",
+          "mono": "IBM Plex Mono",
+          "scale": "editorial"
+        },
+        "voice": {
+          "body": "Museum Archive gives Mosvera catalog calm: index cards, provenance, and restrained color.",
+          "eyebrow": "Collection record",
+          "headline": "An archive table with modern instruments."
+        }
+      }
+    }
+  },
+  "entrypoint": {
+    "id": "museum-archive",
+    "kind": "composition"
+  },
+  "id": "museum-archive",
+  "kind": "mosvera.aesthetic_pack",
+  "name": "Museum Archive",
+  "version": "0.1"
+}

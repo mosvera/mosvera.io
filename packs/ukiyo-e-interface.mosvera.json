@@ -1,0 +1,70 @@
+{
+  "$schema": "https://mosvera.io/schema/0.1/aesthetic-pack",
+  "description": "Flat ink fields, wave rhythm, and vermilion accents translated into a crisp digital surface.",
+  "documents": {
+    "compositions": {
+      "ukiyo-e-interface": {
+        "$schema": "https://mosvera.io/schema/0.1/composition",
+        "base": "ukiyo-e-interface-base",
+        "id": "ukiyo-e-interface"
+      }
+    },
+    "modifiers": {},
+    "palettes": {},
+    "templates": {
+      "ukiyo-e-interface-base": {
+        "$schema": "https://mosvera.io/schema/0.1/template",
+        "id": "ukiyo-e-interface-base",
+        "imagery": {
+          "alt": "Ukiyo-e Interface Mosvera aesthetic thumbnail with woodblock wave treatment.",
+          "blend": "normal",
+          "contrast": "1.02",
+          "saturation": "1.08",
+          "src": "/assets/aesthetics/hero-ukiyo-e-interface.webp",
+          "treatment": "woodblock_wave"
+        },
+        "layout": {
+          "density": "comfortable",
+          "max_width": "1160px",
+          "radius": "5px",
+          "shadow": "0 14px 0 rgba(29, 36, 48, 0.18)"
+        },
+        "motion": {
+          "duration": "260ms",
+          "pace": "flowing"
+        },
+        "palette": {
+          "accent": "#d64a2f",
+          "accent_2": "#2b6f88",
+          "background": "#efe4cf",
+          "border": "#b79c75",
+          "code_bg": "#141a22",
+          "code_ink": "#f7e8c7",
+          "ink": "#1d2430",
+          "muted": "#70624f",
+          "surface": "#fff8e8",
+          "surface_alt": "#dfcaa8"
+        },
+        "typography": {
+          "body": "Hanken Grotesk",
+          "display": "Fraunces",
+          "mono": "IBM Plex Mono",
+          "scale": "editorial"
+        },
+        "voice": {
+          "body": "Ukiyo-e Interface uses flat planes and wave motion to make technical content feel composed and artful.",
+          "eyebrow": "Woodblock interface",
+          "headline": "A digital surface with ink, rhythm, and restraint."
+        }
+      }
+    }
+  },
+  "entrypoint": {
+    "id": "ukiyo-e-interface",
+    "kind": "composition"
+  },
+  "id": "ukiyo-e-interface",
+  "kind": "mosvera.aesthetic_pack",
+  "name": "Ukiyo-e Interface",
+  "version": "0.1"
+}

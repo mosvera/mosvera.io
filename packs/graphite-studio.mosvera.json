@@ -1,0 +1,70 @@
+{
+  "$schema": "https://mosvera.io/schema/0.1/aesthetic-pack",
+  "description": "Charcoal paper, pencil marks, and precise monochrome composition for serious creative tools.",
+  "documents": {
+    "compositions": {
+      "graphite-studio": {
+        "$schema": "https://mosvera.io/schema/0.1/composition",
+        "base": "graphite-studio-base",
+        "id": "graphite-studio"
+      }
+    },
+    "modifiers": {},
+    "palettes": {},
+    "templates": {
+      "graphite-studio-base": {
+        "$schema": "https://mosvera.io/schema/0.1/template",
+        "id": "graphite-studio-base",
+        "imagery": {
+          "alt": "Graphite Studio Mosvera aesthetic thumbnail with graphite study treatment.",
+          "blend": "normal",
+          "contrast": "1.02",
+          "saturation": "1.08",
+          "src": "/assets/aesthetics/hero-graphite-studio.webp",
+          "treatment": "graphite_study"
+        },
+        "layout": {
+          "density": "comfortable",
+          "max_width": "1180px",
+          "radius": "4px",
+          "shadow": "0 18px 60px rgba(29, 28, 26, 0.16)"
+        },
+        "motion": {
+          "duration": "220ms",
+          "pace": "measured"
+        },
+        "palette": {
+          "accent": "#6e6a62",
+          "accent_2": "#b84a3c",
+          "background": "#e6e3dc",
+          "border": "#aaa49a",
+          "code_bg": "#11100f",
+          "code_ink": "#f3eadb",
+          "ink": "#1d1c1a",
+          "muted": "#66615a",
+          "surface": "#f8f6f0",
+          "surface_alt": "#c9c5bb"
+        },
+        "typography": {
+          "body": "Hanken Grotesk",
+          "display": "Fraunces",
+          "mono": "IBM Plex Mono",
+          "scale": "editorial"
+        },
+        "voice": {
+          "body": "Graphite Studio strips the palette down until hierarchy, texture, and judgment carry the surface.",
+          "eyebrow": "Studio table",
+          "headline": "A graphite study for deliberate creative systems."
+        }
+      }
+    }
+  },
+  "entrypoint": {
+    "id": "graphite-studio",
+    "kind": "composition"
+  },
+  "id": "graphite-studio",
+  "kind": "mosvera.aesthetic_pack",
+  "name": "Graphite Studio",
+  "version": "0.1"
+}

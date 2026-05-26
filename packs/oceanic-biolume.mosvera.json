@@ -1,0 +1,70 @@
+{
+  "$schema": "https://mosvera.io/schema/0.1/aesthetic-pack",
+  "description": "Deep water gradients, luminous cyan organisms, and soft pressure for immersive knowledge spaces.",
+  "documents": {
+    "compositions": {
+      "oceanic-biolume": {
+        "$schema": "https://mosvera.io/schema/0.1/composition",
+        "base": "oceanic-biolume-base",
+        "id": "oceanic-biolume"
+      }
+    },
+    "modifiers": {},
+    "palettes": {},
+    "templates": {
+      "oceanic-biolume-base": {
+        "$schema": "https://mosvera.io/schema/0.1/template",
+        "id": "oceanic-biolume-base",
+        "imagery": {
+          "alt": "Oceanic Biolume Mosvera aesthetic thumbnail with deep sea glow treatment.",
+          "blend": "screen",
+          "contrast": "1.12",
+          "saturation": "1.08",
+          "src": "/assets/aesthetics/hero-oceanic-biolume.webp",
+          "treatment": "deep_sea_glow"
+        },
+        "layout": {
+          "density": "spacious",
+          "max_width": "1220px",
+          "radius": "10px",
+          "shadow": "0 28px 85px rgba(41, 227, 208, 0.16)"
+        },
+        "motion": {
+          "duration": "340ms",
+          "pace": "drifting"
+        },
+        "palette": {
+          "accent": "#29e3d0",
+          "accent_2": "#7b6ff0",
+          "background": "#06151b",
+          "border": "#275e68",
+          "code_bg": "#031015",
+          "code_ink": "#d9fffb",
+          "ink": "#e3fbff",
+          "muted": "#99bec6",
+          "surface": "#0d2730",
+          "surface_alt": "#123b46"
+        },
+        "typography": {
+          "body": "Hanken Grotesk",
+          "display": "Fraunces",
+          "mono": "IBM Plex Mono",
+          "scale": "large"
+        },
+        "voice": {
+          "body": "Oceanic Biolume pulls the interface underwater: luminous, slow, and surprisingly readable.",
+          "eyebrow": "Below the surface",
+          "headline": "A bioluminescent system for quiet depth."
+        }
+      }
+    }
+  },
+  "entrypoint": {
+    "id": "oceanic-biolume",
+    "kind": "composition"
+  },
+  "id": "oceanic-biolume",
+  "kind": "mosvera.aesthetic_pack",
+  "name": "Oceanic Biolume",
+  "version": "0.1"
+}

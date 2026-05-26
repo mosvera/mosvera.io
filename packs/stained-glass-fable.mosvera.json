@@ -1,0 +1,70 @@
+{
+  "$schema": "https://mosvera.io/schema/0.1/aesthetic-pack",
+  "description": "Jewel panels, dark leading, and luminous storybook contrast for narrative product surfaces.",
+  "documents": {
+    "compositions": {
+      "stained-glass-fable": {
+        "$schema": "https://mosvera.io/schema/0.1/composition",
+        "base": "stained-glass-fable-base",
+        "id": "stained-glass-fable"
+      }
+    },
+    "modifiers": {},
+    "palettes": {},
+    "templates": {
+      "stained-glass-fable-base": {
+        "$schema": "https://mosvera.io/schema/0.1/template",
+        "id": "stained-glass-fable-base",
+        "imagery": {
+          "alt": "Stained Glass Fable Mosvera aesthetic thumbnail with stained glass treatment.",
+          "blend": "screen",
+          "contrast": "1.12",
+          "saturation": "1.08",
+          "src": "/assets/aesthetics/hero-stained-glass-fable.webp",
+          "treatment": "stained_glass"
+        },
+        "layout": {
+          "density": "spacious",
+          "max_width": "1200px",
+          "radius": "8px",
+          "shadow": "0 28px 90px rgba(232, 79, 111, 0.20)"
+        },
+        "motion": {
+          "duration": "300ms",
+          "pace": "luminous"
+        },
+        "palette": {
+          "accent": "#e84f6f",
+          "accent_2": "#2ec4b6",
+          "background": "#17111c",
+          "border": "#7f5aa2",
+          "code_bg": "#0d0911",
+          "code_ink": "#ffeeb8",
+          "ink": "#fff3d0",
+          "muted": "#ccb6d6",
+          "surface": "#21182a",
+          "surface_alt": "#392745"
+        },
+        "typography": {
+          "body": "Hanken Grotesk",
+          "display": "Fraunces",
+          "mono": "IBM Plex Mono",
+          "scale": "large"
+        },
+        "voice": {
+          "body": "Stained Glass Fable gives technical material storybook depth while keeping every pane inspectable.",
+          "eyebrow": "Illuminated fable",
+          "headline": "A luminous system made from colored panes."
+        }
+      }
+    }
+  },
+  "entrypoint": {
+    "id": "stained-glass-fable",
+    "kind": "composition"
+  },
+  "id": "stained-glass-fable",
+  "kind": "mosvera.aesthetic_pack",
+  "name": "Stained Glass Fable",
+  "version": "0.1"
+}

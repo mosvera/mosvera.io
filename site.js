@@ -9,6 +9,7 @@ const metricMode = document.querySelector("#metric-mode");
 const compositionJson = document.querySelector("#composition-json");
 const compiledTokens = document.querySelector("#compiled-tokens");
 const heroImage = document.querySelector("#hero-image");
+const packGrid = document.querySelector("#pack-grid");
 
 const densityScale = {
   compact: { space: "0.82rem", section: "4rem" },
@@ -78,6 +79,104 @@ function setHash(id) {
   if (hashId() !== id) history.replaceState(null, "", `#${encodeURIComponent(id)}`);
 }
 
+function swatchName(name) {
+  return name.replace(/_/g, " ");
+}
+
+function packUrl(aesthetic, kind) {
+  if (kind === "download") {
+    return aesthetic.download_url ?? `/packs/${aesthetic.id}.mosvera.json`;
+  }
+  return aesthetic.source_url ?? `https://github.com/mosvera/examples/blob/main/packs/${aesthetic.id}.mosvera.json`;
+}
+
+function renderSwatches(aesthetic) {
+  const palette = aesthetic.swatches ?? {
+    background: aesthetic.canonical.palette.background,
+    surface: aesthetic.canonical.palette.surface,
+    ink: aesthetic.canonical.palette.ink,
+    accent: aesthetic.canonical.palette.accent,
+    accent_2: aesthetic.canonical.palette.accent_2,
+    border: aesthetic.canonical.palette.border,
+  };
+  const wrap = document.createElement("div");
+  wrap.className = "swatch-row";
+  wrap.setAttribute("aria-label", `${aesthetic.label} palette swatches`);
+
+  for (const [name, value] of Object.entries(palette)) {
+    const swatch = document.createElement("span");
+    swatch.className = "color-swatch";
+    swatch.style.setProperty("--swatch", value);
+    swatch.dataset.hex = value;
+    swatch.title = `${swatchName(name)}: ${value}`;
+    swatch.tabIndex = 0;
+    swatch.setAttribute("role", "img");
+    swatch.setAttribute("aria-label", `${swatchName(name)} ${value}`);
+    wrap.append(swatch);
+  }
+
+  return wrap;
+}
+
+function renderPackGallery(aesthetics, applyById) {
+  packGrid.replaceChildren();
+  for (const aesthetic of aesthetics) {
+    const article = document.createElement("article");
+    article.dataset.packId = aesthetic.id;
+
+    const image = document.createElement("img");
+    image.src = aesthetic.canonical.imagery.src;
+    image.alt = aesthetic.canonical.imagery.alt;
+    image.width = 640;
+    image.height = 427;
+    image.loading = "lazy";
+    article.append(image);
+
+    const copy = document.createElement("div");
+    copy.className = "pack-copy";
+
+    const meta = document.createElement("div");
+    meta.className = "pack-meta";
+    const id = document.createElement("span");
+    id.className = "metric-label";
+    id.textContent = aesthetic.id;
+    const category = document.createElement("span");
+    category.className = "pack-category";
+    category.textContent = aesthetic.category ?? "Aesthetic pack";
+    meta.append(id, category);
+
+    const title = document.createElement("h3");
+    title.textContent = aesthetic.label;
+    const summary = document.createElement("p");
+    summary.textContent = aesthetic.summary;
+    copy.append(meta, title, summary, renderSwatches(aesthetic));
+    article.append(copy);
+
+    const actions = document.createElement("div");
+    actions.className = "pack-actions";
+    const apply = document.createElement("button");
+    apply.type = "button";
+    apply.className = "command-link primary";
+    apply.textContent = "Apply to site";
+    apply.addEventListener("click", () => applyById(aesthetic.id));
+
+    const download = document.createElement("a");
+    download.className = "command-link";
+    download.href = packUrl(aesthetic, "download");
+    download.download = `${aesthetic.id}.mosvera.json`;
+    download.textContent = "Download pack";
+
+    const source = document.createElement("a");
+    source.className = "command-link";
+    source.href = packUrl(aesthetic, "source");
+    source.textContent = "View source";
+
+    actions.append(apply, download, source);
+    article.append(actions);
+    packGrid.append(article);
+  }
+}
+
 function applyAesthetic(aesthetic) {
   const tokens = compileSiteTheme(aesthetic);
   for (const [key, value] of Object.entries(tokens)) {
@@ -97,6 +196,12 @@ function applyAesthetic(aesthetic) {
   compositionJson.textContent = JSON.stringify(aesthetic.composition, null, 2);
   compiledTokens.textContent = toCss(tokens);
   setHash(aesthetic.id);
+
+  for (const tile of document.querySelectorAll("[data-pack-id]")) {
+    const active = tile.dataset.packId === aesthetic.id;
+    tile.classList.toggle("is-active", active);
+    tile.setAttribute("aria-current", active ? "true" : "false");
+  }
 }
 
 async function main() {
@@ -119,6 +224,11 @@ async function main() {
 
   window.addEventListener("hashchange", () => {
     const next = aesthetics.get(hashId()) ?? aesthetics.get(registry.default);
+    applyAesthetic(next);
+  });
+
+  renderPackGallery(registry.aesthetics, (id) => {
+    const next = aesthetics.get(id) ?? aesthetics.get(registry.default);
     applyAesthetic(next);
   });
 
