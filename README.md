@@ -37,3 +37,9 @@ node scripts/verify.mjs
 
 The verifier checks schema endpoint files, required v1 aesthetics, and common
 public-release safety problems.
+
+## Deployment
+
+The Vercel project is connected to `mosvera/mosvera.io` and deploys production
+from `main`. GitHub pushes should create the production deployment automatically;
+manual `vercel deploy --prod` is only a fallback if the Git integration is down.
