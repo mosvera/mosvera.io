@@ -21,6 +21,7 @@ Then open `http://localhost:8099/`.
 - Spec and schemas: <https://github.com/mosvera/spec>
 - JS/TS runtime: <https://www.npmjs.com/package/@mosvera/runtime>
 - Python runtime: <https://pypi.org/project/mosvera/>
+- Provider adapters: <https://www.npmjs.com/search?q=%40mosvera%2Fprovider>
 - Local MCP bridge: <https://www.npmjs.com/package/@mosvera/mcp>
 - Claude Desktop bundle: <https://github.com/mosvera/mcp/releases/latest>
 

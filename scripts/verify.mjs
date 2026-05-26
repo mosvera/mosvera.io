@@ -28,6 +28,7 @@ const requiredPackUrls = requiredAesthetics.map(
 );
 
 const quickstartUrl = "https://github.com/mosvera/spec/blob/main/docs/guides/10-minute-quickstart.md";
+const mcpBundleUrl = "https://github.com/mosvera/mcp/releases/download/v0.1.6/mosvera-mcp-0.1.6.mcpb";
 
 const forbiddenPaths = [
   ".envrc",
@@ -138,8 +139,12 @@ for (const phrase of ["Preview pack", "Import pack", "Resolve/compile aesthetic"
   if (!index.includes(phrase)) fail(`index does not include pack workflow phrase: ${phrase}`);
 }
 if (!index.includes(quickstartUrl)) fail("index does not link to the 10-minute quickstart");
+if (!index.includes(mcpBundleUrl)) fail("index does not link to the current MCP bundle");
 for (const phrase of ["10-minute quickstart", "Claude Desktop", "npm/MCP", "TypeScript", "Python"]) {
   if (!index.includes(phrase)) fail(`index does not include quickstart phrase: ${phrase}`);
+}
+for (const phrase of ["Google", "Runway", "ElevenLabs", "Firefly", "Meshy"]) {
+  if (!index.includes(phrase)) fail(`index does not include provider phrase: ${phrase}`);
 }
 for (const phrase of [
   "What just happened?",
