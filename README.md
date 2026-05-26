@@ -40,10 +40,15 @@ and automation.
 - Full agent reference: <https://mosvera.io/llms-full.txt>
 - Install router: <https://mosvera.io/ai-install.md>
 - Machine-readable manifest: <https://mosvera.io/.well-known/mosvera.json>
+- Search sitemap: <https://mosvera.io/sitemap.xml>
 
 Agents should ask the user which install route they want before running local
 commands. The site advertises `/llms.txt` through HTML metadata and an HTTP
 `Link` header.
+
+The canonical public URL is `https://mosvera.io/`; `www.mosvera.io` redirects to
+the apex. Search engines should use `sitemap.xml`, while `llms.txt` remains the
+AI-agent discovery surface.
 
 ## Verification
 

@@ -248,6 +248,7 @@ summary:hover {
 }
 
 .definition-strip,
+.search-summary,
 .quickstart-callout,
 .package-guide,
 .pack-gallery,
@@ -284,6 +285,43 @@ summary:hover {
   margin-bottom: 0.65rem;
   color: var(--accent-2);
   font-size: clamp(1.55rem, 3vw, 2.35rem);
+}
+
+.search-summary {
+  gap: calc(var(--space) * 1.2);
+}
+
+.search-summary-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 1rem;
+}
+
+.search-summary-grid article {
+  display: grid;
+  align-content: start;
+  gap: 0.8rem;
+  padding: clamp(1rem, 2vw, 1.35rem);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  background: color-mix(in srgb, var(--surface) 88%, transparent);
+  box-shadow: var(--shadow);
+}
+
+.search-summary-grid h3 {
+  margin: 0;
+  font-size: 1.05rem;
+}
+
+.search-summary-grid p {
+  margin: 0;
+  color: var(--muted);
+}
+
+.search-summary-grid a {
+  color: var(--accent);
+  font-weight: 650;
+  overflow-wrap: anywhere;
 }
 
 .quickstart-callout {
@@ -720,6 +758,7 @@ body[data-aesthetic="claymation-playful-builder"] .command-link.primary {
 
   .hero,
   .definition-strip,
+  .search-summary-grid,
   .quickstart-callout,
   .package-grid,
   .pack-grid,

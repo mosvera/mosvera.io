@@ -3,23 +3,37 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>Mosvera</title>
+    <title>Mosvera | Aesthetic Infrastructure for AI-Native Tools</title>
     <meta
       name="description"
-      content="Mosvera is a declarative runtime for aesthetic intent in AI-native systems."
+      content="Mosvera is an open aesthetic composition system for local registries, portable aesthetic packs, design tokens, CSS variables, MCP tools, and provider payloads."
     />
-    <meta property="og:title" content="Mosvera" />
+    <meta name="robots" content="index,follow" />
+    <meta name="theme-color" content="#f5efe4" />
+    <link rel="canonical" href="https://mosvera.io/" />
+    <meta property="og:type" content="website" />
+    <meta property="og:site_name" content="Mosvera" />
+    <meta property="og:url" content="https://mosvera.io/" />
+    <meta property="og:title" content="Mosvera | Aesthetic Infrastructure for AI-Native Tools" />
     <meta
       property="og:description"
-      content="Aesthetic infrastructure: typed, portable, reviewable, and executable."
+      content="Open aesthetic infrastructure: typed, portable, reviewable, and executable inside your own apps, agents, and design systems."
     />
-    <meta property="og:image" content="/assets/mosvera-hero.png" />
+    <meta property="og:image" content="https://mosvera.io/assets/mosvera-hero.png" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="Mosvera | Aesthetic Infrastructure for AI-Native Tools" />
+    <meta
+      name="twitter:description"
+      content="Open aesthetic infrastructure for local registries, portable packs, design tokens, CSS variables, MCP tools, and provider payloads."
+    />
+    <meta name="twitter:image" content="https://mosvera.io/assets/mosvera-hero.png" />
 
     <link rel="icon" href="/brand/favicon.svg" type="image/svg+xml" />
     <link rel="icon" href="/brand/favicon.ico" sizes="any" />
     <link rel="apple-touch-icon" href="/brand/apple-touch-icon.png" />
     <link rel="alternate" type="text/markdown" href="/llms.txt" title="LLM-readable Mosvera index" />
     <link rel="alternate" type="application/json" href="/.well-known/mosvera.json" title="Mosvera machine-readable manifest" />
+    <link rel="sitemap" type="application/xml" href="/sitemap.xml" />
     <link rel="preload" href="/data/aesthetics.json" as="fetch" crossorigin="anonymous" />
 
     <link rel="preconnect" href="https://fonts.googleapis.com" />
@@ -29,6 +43,44 @@
       href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,650&family=Hanken+Grotesk:wght@400;520;650&family=IBM+Plex+Mono:wght@400;500&display=swap"
     />
     <link rel="stylesheet" href="/styles.css" />
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@graph": [
+          {
+            "@type": "Organization",
+            "@id": "https://mosvera.io/#organization",
+            "name": "Mosvera",
+            "url": "https://mosvera.io/",
+            "logo": "https://mosvera.io/brand/mark-512.png",
+            "sameAs": [
+              "https://github.com/mosvera"
+            ]
+          },
+          {
+            "@type": "WebSite",
+            "@id": "https://mosvera.io/#website",
+            "name": "Mosvera",
+            "url": "https://mosvera.io/",
+            "publisher": {
+              "@id": "https://mosvera.io/#organization"
+            },
+            "description": "Public home for Mosvera, an open aesthetic composition system for local registries, portable packs, runtimes, MCP tools, and provider payloads."
+          },
+          {
+            "@type": "SoftwareSourceCode",
+            "@id": "https://mosvera.io/#software",
+            "name": "Mosvera",
+            "codeRepository": "https://github.com/mosvera/spec",
+            "programmingLanguage": ["TypeScript", "Python"],
+            "license": "https://github.com/mosvera/spec/blob/main/LICENSE",
+            "runtimePlatform": ["Node.js", "Python", "Model Context Protocol"],
+            "url": "https://mosvera.io/",
+            "description": "Open aesthetic infrastructure for resolving named aesthetics into design tokens, CSS variables, MCP tool outputs, and provider payloads."
+          }
+        ]
+      }
+    </script>
   </head>
   <body>
     <header class="site-header" aria-label="Site header">
@@ -97,6 +149,33 @@
           <h2>Compile</h2>
           <p>Lower that model into your platform: site tokens, design systems, prompts, and provider payloads.</p>
         </article>
+      </section>
+
+      <section class="search-summary" aria-labelledby="what-is-mosvera-title">
+        <div class="section-heading">
+          <p class="eyebrow">What is Mosvera?</p>
+          <h2 id="what-is-mosvera-title">An open contract for aesthetic intent.</h2>
+          <p>
+            Mosvera gives AI-native products a shared way to describe, exchange, resolve, and compile aesthetic direction. Teams keep named aesthetics in local registries, share them as `.mosvera.json` packs, and compile them into design tokens, CSS variables, MCP tool results, or provider-specific payloads.
+          </p>
+        </div>
+        <div class="search-summary-grid">
+          <article>
+            <h3>Open source specification</h3>
+            <p>The public contract lives in schemas, compliance vectors, terminology, and implementation guides.</p>
+            <a href="https://github.com/mosvera/spec">github.com/mosvera/spec</a>
+          </article>
+          <article>
+            <h3>Local runtimes</h3>
+            <p>Use the TypeScript runtime, Python runtime, or local MCP server inside your own tools.</p>
+            <a href="https://www.npmjs.com/package/@mosvera/runtime">@mosvera/runtime on npm</a>
+          </article>
+          <article>
+            <h3>Portable aesthetic packs</h3>
+            <p>Download public packs, preview imports, and bring named aesthetics into a user-owned registry.</p>
+            <a href="https://github.com/mosvera/examples/tree/main/packs">mosvera/examples packs</a>
+          </article>
+        </div>
       </section>
 
       <section class="quickstart-callout" aria-labelledby="quickstart-title">

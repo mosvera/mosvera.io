@@ -1,5 +1,8 @@
 User-agent: *
 Allow: /
 
+# Search engine discovery
+Sitemap: https://mosvera.io/sitemap.xml
+
 # AI agent discovery
-Sitemap: https://mosvera.io/llms.txt
+# https://mosvera.io/llms.txt

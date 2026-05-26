@@ -58,6 +58,7 @@ const requiredSourceUrls = requiredAesthetics.map(
 
 const quickstartUrl = "https://github.com/mosvera/spec/blob/main/docs/guides/10-minute-quickstart.md";
 const mcpBundleUrl = "https://github.com/mosvera/mcp/releases/download/v0.1.9/mosvera-mcp-0.1.9.mcpb";
+const canonicalUrl = "https://mosvera.io/";
 
 const agentFiles = {
   "llms.txt": {
@@ -186,6 +187,20 @@ if (manifest.schemas?.aesthetic_pack !== "https://mosvera.io/schema/0.1/aestheti
   fail("manifest missing aesthetic pack schema URL");
 }
 
+const sitemapPath = join(root, "sitemap.xml");
+if (!existsSync(sitemapPath)) fail("missing sitemap.xml");
+const sitemap = readFileSync(sitemapPath, "utf8");
+for (const url of [
+  canonicalUrl,
+  "https://mosvera.io/ai-install.md",
+  "https://mosvera.io/llms.txt",
+  "https://mosvera.io/llms-full.txt",
+  "https://mosvera.io/schema/0.1/composition",
+  "https://mosvera.io/schema/0.1/aesthetic-pack",
+]) {
+  if (!sitemap.includes(`<loc>${url}</loc>`)) fail(`sitemap.xml missing ${url}`);
+}
+
 const aestheticsPath = join(root, "data", "aesthetics.json");
 const aesthetics = JSON.parse(readFileSync(aestheticsPath, "utf8"));
 const examplesGalleryPath = join(examplesRoot, "packs", "gallery.json");
@@ -292,6 +307,21 @@ for (const phrase of ["pack-grid", "Apply to site", "Download pack", "View sourc
 if (!index.includes(quickstartUrl)) fail("index does not link to the 10-minute quickstart");
 if (!index.includes(mcpBundleUrl)) fail("index does not link to the current MCP bundle");
 for (const phrase of [
+  "<title>Mosvera | Aesthetic Infrastructure for AI-Native Tools</title>",
+  'name="robots" content="index,follow"',
+  `rel="canonical" href="${canonicalUrl}"`,
+  'property="og:url" content="https://mosvera.io/"',
+  'name="twitter:card" content="summary_large_image"',
+  'rel="sitemap" type="application/xml" href="/sitemap.xml"',
+  'type="application/ld+json"',
+  "SoftwareSourceCode",
+  "What is Mosvera?",
+  "open aesthetic composition system",
+  "github.com/mosvera/spec",
+]) {
+  if (!index.includes(phrase)) fail(`index does not include search/trust phrase: ${phrase}`);
+}
+for (const phrase of [
   'href="/llms.txt"',
   'href="/.well-known/mosvera.json"',
   'href="/ai-install.md"',
@@ -301,15 +331,20 @@ for (const phrase of [
 ]) {
   if (!index.includes(phrase)) fail(`index does not include AI discovery phrase: ${phrase}`);
 }
-for (const phrase of ["llms.txt", "llms-full.txt", "ai-install.md", ".well-known/mosvera.json"]) {
+for (const phrase of ["llms.txt", "llms-full.txt", "ai-install.md", ".well-known/mosvera.json", "sitemap.xml", "www.mosvera.io"]) {
   if (!readme.includes(phrase)) fail(`README does not include AI entrypoint: ${phrase}`);
 }
-if (!robots.includes("Sitemap: https://mosvera.io/llms.txt")) fail("robots.txt does not advertise llms.txt");
+if (!robots.includes("Sitemap: https://mosvera.io/sitemap.xml")) fail("robots.txt does not advertise sitemap.xml");
+if (!robots.includes("https://mosvera.io/llms.txt")) fail("robots.txt does not mention llms.txt");
 const headerSources = new Map(vercel.headers.map((entry) => [entry.source, entry.headers]));
-for (const source of ["/llms.txt", "/llms-full.txt", "/ai-install.md", "/.well-known/mosvera.json"]) {
+const redirects = vercel.redirects ?? [];
+if (!redirects.some((redirect) => redirect.destination === "https://mosvera.io/$1" && redirect.permanent === true && redirect.has?.some((condition) => condition.type === "host" && condition.value === "www.mosvera.io"))) {
+  fail("vercel.json does not redirect www.mosvera.io to the canonical apex");
+}
+for (const source of ["/sitemap.xml", "/llms.txt", "/llms-full.txt", "/ai-install.md", "/.well-known/mosvera.json"]) {
   if (!headerSources.has(source)) fail(`vercel.json missing header rule for ${source}`);
   const headers = headerSources.get(source);
-  if (!headers.some((header) => header.key === "Access-Control-Allow-Origin" && header.value === "*")) {
+  if (source !== "/sitemap.xml" && !headers.some((header) => header.key === "Access-Control-Allow-Origin" && header.value === "*")) {
     fail(`vercel.json missing CORS header for ${source}`);
   }
 }
