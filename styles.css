@@ -245,6 +245,7 @@ summary:hover {
 }
 
 .definition-strip,
+.package-guide,
 .proof-layout,
 .inspection {
   display: grid;
@@ -256,6 +257,7 @@ summary:hover {
 }
 
 .definition-strip article,
+.package-grid article,
 .artifact-panel,
 .inspection details {
   border: 1px solid var(--border);
@@ -272,6 +274,42 @@ summary:hover {
   margin-bottom: 0.65rem;
   color: var(--accent-2);
   font-size: clamp(1.55rem, 3vw, 2.35rem);
+}
+
+.package-guide {
+  gap: calc(var(--space) * 1.2);
+}
+
+.package-guide h2 {
+  max-width: 12ch;
+}
+
+.package-grid {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 1rem;
+}
+
+.package-grid article {
+  min-height: 15rem;
+  display: grid;
+  align-content: start;
+  gap: 0.8rem;
+  padding: clamp(1rem, 2vw, 1.35rem);
+}
+
+.package-grid h3 {
+  margin: 0;
+  overflow-wrap: anywhere;
+  font-family: var(--font-mono);
+  font-size: clamp(1rem, 1.8vw, 1.25rem);
+  line-height: 1.2;
+}
+
+.package-grid p {
+  margin: 0;
+  color: var(--muted);
+  font-size: 1rem;
 }
 
 .proof-layout {
@@ -385,6 +423,7 @@ body[data-aesthetic="claymation-playful-builder"] .command-link.primary {
 
   .hero,
   .definition-strip,
+  .package-grid,
   .proof-layout,
   .artifact-grid,
   .inspection {
