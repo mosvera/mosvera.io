@@ -28,7 +28,7 @@ const requiredPackUrls = requiredAesthetics.map(
 );
 
 const quickstartUrl = "https://github.com/mosvera/spec/blob/main/docs/guides/10-minute-quickstart.md";
-const mcpBundleUrl = "https://github.com/mosvera/mcp/releases/download/v0.1.6/mosvera-mcp-0.1.6.mcpb";
+const mcpBundleUrl = "https://github.com/mosvera/mcp/releases/download/v0.1.7/mosvera-mcp-0.1.7.mcpb";
 
 const forbiddenPaths = [
   ".envrc",
