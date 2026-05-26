@@ -1,0 +1,5 @@
+Contact: mailto:nic@niclydon.io
+Policy: https://mosvera.io/security
+Canonical: https://mosvera.io/.well-known/security.txt
+Preferred-Languages: en
+Expires: 2027-05-26T00:00:00Z

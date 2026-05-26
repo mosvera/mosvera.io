@@ -1,0 +1,14 @@
+/* TEAM */
+
+Project: Mosvera
+Site: https://mosvera.io
+Source: https://github.com/mosvera/mosvera.io
+Contact: https://mosvera.io/contact
+Security: https://mosvera.io/security
+
+/* SITE */
+
+Purpose: Public website, schema host, pack gallery, and AI-agent entrypoint surface.
+Standards: HTML, CSS, JSON Schema, Model Context Protocol
+Hosting: Static Vercel deployment
+Canonical URL: https://mosvera.io/

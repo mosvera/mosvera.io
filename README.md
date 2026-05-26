@@ -41,6 +41,10 @@ and automation.
 - Install router: <https://mosvera.io/ai-install.md>
 - Machine-readable manifest: <https://mosvera.io/.well-known/mosvera.json>
 - Search sitemap: <https://mosvera.io/sitemap.xml>
+- Security policy: <https://mosvera.io/security>
+- Contact links: <https://mosvera.io/contact>
+- Status notes: <https://mosvera.io/status>
+- Humans file: <https://mosvera.io/humans.txt>
 
 Agents should ask the user which install route they want before running local
 commands. The site advertises `/llms.txt` through HTML metadata and an HTTP

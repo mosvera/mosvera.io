@@ -197,8 +197,37 @@ for (const url of [
   "https://mosvera.io/llms-full.txt",
   "https://mosvera.io/schema/0.1/composition",
   "https://mosvera.io/schema/0.1/aesthetic-pack",
+  "https://mosvera.io/security",
+  "https://mosvera.io/contact",
+  "https://mosvera.io/status",
 ]) {
   if (!sitemap.includes(`<loc>${url}</loc>`)) fail(`sitemap.xml missing ${url}`);
+}
+
+const securityTxtPath = join(root, ".well-known", "security.txt");
+if (!existsSync(securityTxtPath)) fail("missing .well-known/security.txt");
+const securityTxt = readFileSync(securityTxtPath, "utf8");
+for (const phrase of [
+  "Contact: mailto:nic@niclydon.io",
+  "Policy: https://mosvera.io/security",
+  "Canonical: https://mosvera.io/.well-known/security.txt",
+  "Expires: 2027-05-26T00:00:00Z",
+]) {
+  if (!securityTxt.includes(phrase)) fail(`security.txt missing phrase: ${phrase}`);
+}
+
+for (const [fileName, phrases] of Object.entries({
+  security: ["Mosvera Security", "Report vulnerabilities privately", "/.well-known/security.txt"],
+  contact: ["Contact Mosvera", "Public project channels", "github.com/mosvera/spec/issues"],
+  status: ["Mosvera Status", "no hosted runtime dependency", "GitHub, npm, PyPI"],
+  "humans.txt": ["Project: Mosvera", "Source: https://github.com/mosvera/mosvera.io", "Canonical URL: https://mosvera.io/"],
+})) {
+  const path = join(root, fileName);
+  if (!existsSync(path)) fail(`missing trust file: ${fileName}`);
+  const content = readFileSync(path, "utf8");
+  for (const phrase of phrases) {
+    if (!content.includes(phrase)) fail(`${fileName} missing phrase: ${phrase}`);
+  }
 }
 
 const aestheticsPath = join(root, "data", "aesthetics.json");
@@ -328,10 +357,13 @@ for (const phrase of [
   "LLM-readable index",
   "install router",
   'id="pack-gallery"',
+  'href="/security"',
+  'href="/contact"',
+  'href="/status"',
 ]) {
   if (!index.includes(phrase)) fail(`index does not include AI discovery phrase: ${phrase}`);
 }
-for (const phrase of ["llms.txt", "llms-full.txt", "ai-install.md", ".well-known/mosvera.json", "sitemap.xml", "www.mosvera.io"]) {
+for (const phrase of ["llms.txt", "llms-full.txt", "ai-install.md", ".well-known/mosvera.json", "sitemap.xml", "www.mosvera.io", "/security", "/contact", "/status", "humans.txt"]) {
   if (!readme.includes(phrase)) fail(`README does not include AI entrypoint: ${phrase}`);
 }
 if (!robots.includes("Sitemap: https://mosvera.io/sitemap.xml")) fail("robots.txt does not advertise sitemap.xml");
@@ -341,10 +373,13 @@ const redirects = vercel.redirects ?? [];
 if (!redirects.some((redirect) => redirect.destination === "https://mosvera.io/$1" && redirect.permanent === true && redirect.has?.some((condition) => condition.type === "host" && condition.value === "www.mosvera.io"))) {
   fail("vercel.json does not redirect www.mosvera.io to the canonical apex");
 }
-for (const source of ["/sitemap.xml", "/llms.txt", "/llms-full.txt", "/ai-install.md", "/.well-known/mosvera.json"]) {
+if (!redirects.some((redirect) => redirect.source === "/security.txt" && redirect.destination === "/.well-known/security.txt" && redirect.permanent === true)) {
+  fail("vercel.json does not redirect /security.txt to /.well-known/security.txt");
+}
+for (const source of ["/.well-known/security.txt", "/humans.txt", "/(security|contact|status)", "/sitemap.xml", "/llms.txt", "/llms-full.txt", "/ai-install.md", "/.well-known/mosvera.json"]) {
   if (!headerSources.has(source)) fail(`vercel.json missing header rule for ${source}`);
   const headers = headerSources.get(source);
-  if (source !== "/sitemap.xml" && !headers.some((header) => header.key === "Access-Control-Allow-Origin" && header.value === "*")) {
+  if (!["/sitemap.xml", "/.well-known/security.txt", "/humans.txt", "/(security|contact|status)"].includes(source) && !headers.some((header) => header.key === "Access-Control-Allow-Origin" && header.value === "*")) {
     fail(`vercel.json missing CORS header for ${source}`);
   }
 }

@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Mosvera Status</title>
+    <meta name="description" content="Status notes for Mosvera public surfaces." />
+    <meta name="robots" content="index,follow" />
+    <link rel="canonical" href="https://mosvera.io/status" />
+    <link rel="stylesheet" href="/styles.css" />
+  </head>
+  <body>
+    <main class="page-shell text-page">
+      <a class="brand" href="/">
+        <img src="/brand/mark.svg" alt="" width="34" height="34" />
+        <span>Mosvera</span>
+      </a>
+      <section class="text-panel">
+        <p class="eyebrow">Status</p>
+        <h1>Mosvera has no hosted runtime dependency.</h1>
+        <p>
+          Mosvera production usage runs inside user-owned tools, local
+          registries, package installs, and MCP hosts. This website hosts
+          documentation, schemas, example packs, and the live demonstrator.
+        </p>
+        <p>
+          Public availability depends on GitHub, npm, PyPI, and the static
+          Vercel deployment for <code>mosvera.io</code>.
+        </p>
+        <p>
+          For a runtime/package issue, open an issue in the affected repository.
+          For security issues, use <a href="/security">the security policy</a>.
+        </p>
+      </section>
+    </main>
+  </body>
+</html>
