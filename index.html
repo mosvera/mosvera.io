@@ -37,6 +37,7 @@
       <nav class="site-nav" aria-label="Primary navigation">
         <a href="https://github.com/mosvera/spec">Spec</a>
         <a href="https://github.com/mosvera/runtime">Runtime</a>
+        <a href="https://github.com/mosvera/mcp/releases/latest">MCP</a>
         <a href="https://github.com/mosvera/examples">Examples</a>
         <a href="/schema/0.1/composition">Schemas</a>
       </nav>
@@ -58,7 +59,8 @@
 
           <div class="action-row" aria-label="Primary links">
             <a class="command-link primary" href="https://github.com/mosvera/spec">Read the spec</a>
-            <a class="command-link" href="https://github.com/mosvera/runtime">Install the runtime</a>
+            <a class="command-link" href="https://github.com/mosvera/mcp/releases/latest/download/mosvera-mcp-0.1.1.mcpb">Install Claude bundle</a>
+            <a class="command-link" href="https://www.npmjs.com/package/@mosvera/runtime">Install the runtime</a>
           </div>
         </div>
 
@@ -117,7 +119,7 @@
           <article>
             <span class="metric-label">Tool surface</span>
             <h3>@mosvera/mcp</h3>
-            <p>Expose Mosvera as MCP tools for agents, editors, and automation.</p>
+            <p>Run a local Claude Desktop-friendly MCP server that lists, resolves, saves, and compiles aesthetics from your registry.</p>
           </article>
           <article>
             <span class="metric-label">Public contract</span>
@@ -133,6 +135,9 @@
           <h2 id="proof-title">This site consumes the idea it explains.</h2>
           <p>
             The selected composition is pre-resolved for this static v1. A small site adapter compiles the canonical model into CSS variables, so the page changes without pretending that production users depend on this domain at runtime.
+          </p>
+          <p>
+            Agents use Mosvera the same way: the MCP server runs locally, reads and writes a user-owned registry, and never sends provider requests by itself.
           </p>
         </div>
 
@@ -152,7 +157,8 @@
             </div>
           </div>
           <pre class="inline-code" id="install-snippet"><code>npm install @mosvera/runtime
-pip install mosvera</code></pre>
+pip install mosvera
+npm install -g @mosvera/mcp</code></pre>
         </div>
       </section>
 

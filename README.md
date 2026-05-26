@@ -16,6 +16,18 @@ python3 -m http.server 8099
 
 Then open `http://localhost:8099/`.
 
+## Public Packages
+
+- Spec and schemas: <https://github.com/mosvera/spec>
+- JS/TS runtime: <https://www.npmjs.com/package/@mosvera/runtime>
+- Python runtime: <https://pypi.org/project/mosvera/>
+- Local MCP bridge: <https://www.npmjs.com/package/@mosvera/mcp>
+- Claude Desktop bundle: <https://github.com/mosvera/mcp/releases/latest>
+
+The MCP server uses a local user-owned registry. The default Claude Desktop
+path is the `.mcpb` release bundle; npm/npx remains available for developers
+and automation.
+
 ## Verification
 
 ```sh
