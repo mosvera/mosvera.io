@@ -245,6 +245,7 @@ summary:hover {
 }
 
 .definition-strip,
+.quickstart-callout,
 .package-guide,
 .pack-gallery,
 .proof-layout,
@@ -258,6 +259,7 @@ summary:hover {
 }
 
 .definition-strip article,
+.quickstart-callout,
 .package-grid article,
 .pack-grid article,
 .pack-instructions,
@@ -277,6 +279,28 @@ summary:hover {
   margin-bottom: 0.65rem;
   color: var(--accent-2);
   font-size: clamp(1.55rem, 3vw, 2.35rem);
+}
+
+.quickstart-callout {
+  grid-template-columns: minmax(0, 1fr) auto;
+  align-items: center;
+  gap: clamp(1rem, 3vw, 2rem);
+  padding: clamp(1rem, 3vw, 1.5rem);
+}
+
+.quickstart-callout div {
+  display: grid;
+  gap: 0.65rem;
+}
+
+.quickstart-callout h2 {
+  max-width: 16ch;
+  font-size: clamp(1.7rem, 3.6vw, 3rem);
+}
+
+.quickstart-callout p:not(.eyebrow) {
+  max-width: 72ch;
+  color: var(--muted);
 }
 
 .package-guide {
@@ -520,6 +544,7 @@ body[data-aesthetic="claymation-playful-builder"] .command-link.primary {
 
   .hero,
   .definition-strip,
+  .quickstart-callout,
   .package-grid,
   .pack-grid,
   .workflow-strip,

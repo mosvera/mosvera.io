@@ -27,6 +27,8 @@ const requiredPackUrls = requiredAesthetics.map(
   (id) => `https://raw.githubusercontent.com/mosvera/spec/main/examples/packs/${id}.mosvera.json`,
 );
 
+const quickstartUrl = "https://github.com/mosvera/spec/blob/main/docs/guides/10-minute-quickstart.md";
+
 const forbiddenPaths = [
   ".envrc",
   ".remember",
@@ -134,6 +136,10 @@ for (const url of requiredPackUrls) {
 }
 for (const phrase of ["Preview pack", "Import pack", "Resolve/compile aesthetic"]) {
   if (!index.includes(phrase)) fail(`index does not include pack workflow phrase: ${phrase}`);
+}
+if (!index.includes(quickstartUrl)) fail("index does not link to the 10-minute quickstart");
+for (const phrase of ["10-minute quickstart", "Claude Desktop", "npm/MCP", "TypeScript", "Python"]) {
+  if (!index.includes(phrase)) fail(`index does not include quickstart phrase: ${phrase}`);
 }
 for (const path of [
   "/schema/0.1/composition",
