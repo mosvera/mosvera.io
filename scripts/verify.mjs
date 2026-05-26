@@ -59,6 +59,50 @@ const requiredSourceUrls = requiredAesthetics.map(
 const quickstartUrl = "https://github.com/mosvera/spec/blob/main/docs/guides/10-minute-quickstart.md";
 const mcpBundleUrl = "https://github.com/mosvera/mcp/releases/download/v0.1.9/mosvera-mcp-0.1.9.mcpb";
 
+const agentFiles = {
+  "llms.txt": {
+    phrases: [
+      "# Mosvera",
+      "For AI Agents",
+      "claude mcp add mosvera -- npx -y @mosvera/mcp@latest",
+      "codex mcp add mosvera -- npx -y @mosvera/mcp@latest",
+      "npx -y @mosvera/mcp@latest",
+      "npm install @mosvera/runtime",
+      "pip install mosvera",
+      "llms-full.txt",
+      "ai-install.md",
+      ".well-known/mosvera.json",
+      "Mosvera runs locally",
+    ],
+  },
+  "llms-full.txt": {
+    phrases: [
+      "Mosvera Agent Reference",
+      "Term Stack",
+      "MCP Tool Surface",
+      "Provider Compile IDs",
+      "25 Public Aesthetic Packs",
+      "google-gemini-image",
+      "heygen-avatar-video",
+      "compile_provider_payload",
+      "Ask before writing to a local registry",
+    ],
+  },
+  "ai-install.md": {
+    phrases: [
+      "# Install Mosvera",
+      "Claude Desktop",
+      "Claude Code",
+      "Codex",
+      "TypeScript Runtime",
+      "Python Runtime",
+      "Aesthetic Packs",
+      "ChatGPT",
+      "codex mcp add mosvera -- npx -y @mosvera/mcp@latest",
+    ],
+  },
+};
+
 const forbiddenPaths = [
   ".envrc",
   ".remember",
@@ -114,6 +158,32 @@ for (const [name, id] of Object.entries(requiredSchemas)) {
   if (!existsSync(path)) fail(`missing schema endpoint file: ${name}`);
   const schema = JSON.parse(readFileSync(path, "utf8"));
   if (schema.$id !== id) fail(`${name} has $id ${schema.$id}, expected ${id}`);
+}
+
+for (const [fileName, { phrases }] of Object.entries(agentFiles)) {
+  const path = join(root, fileName);
+  if (!existsSync(path)) fail(`missing AI agent entrypoint: ${fileName}`);
+  const content = readFileSync(path, "utf8");
+  for (const phrase of phrases) {
+    if (!content.includes(phrase)) fail(`${fileName} missing phrase: ${phrase}`);
+  }
+}
+
+const manifestPath = join(root, ".well-known", "mosvera.json");
+if (!existsSync(manifestPath)) fail("missing .well-known/mosvera.json");
+const manifest = JSON.parse(readFileSync(manifestPath, "utf8"));
+if (manifest.homepage !== "https://mosvera.io") fail("manifest homepage must be https://mosvera.io");
+if (manifest.ai_entrypoints?.compact !== "https://mosvera.io/llms.txt") fail("manifest missing compact AI entrypoint");
+if (manifest.install?.codex?.command !== "codex mcp add mosvera -- npx -y @mosvera/mcp@latest") {
+  fail("manifest codex install command is incorrect");
+}
+if (manifest.install?.claude_code?.command !== "claude mcp add mosvera -- npx -y @mosvera/mcp@latest") {
+  fail("manifest Claude Code install command is incorrect");
+}
+if (manifest.packages?.mcp?.version !== "0.1.9") fail("manifest MCP version must match current public site bundle");
+if (manifest.mcp?.provider_execution !== false) fail("manifest must state MCP does not execute providers");
+if (manifest.schemas?.aesthetic_pack !== "https://mosvera.io/schema/0.1/aesthetic-pack") {
+  fail("manifest missing aesthetic pack schema URL");
 }
 
 const aestheticsPath = join(root, "data", "aesthetics.json");
@@ -198,6 +268,9 @@ for (const file of walk(root)) {
 const index = readFileSync(join(root, "index.html"), "utf8");
 const siteJs = readFileSync(join(root, "site.js"), "utf8");
 const styles = readFileSync(join(root, "styles.css"), "utf8");
+const readme = readFileSync(join(root, "README.md"), "utf8");
+const robots = readFileSync(join(root, "robots.txt"), "utf8");
+const vercel = JSON.parse(readFileSync(join(root, "vercel.json"), "utf8"));
 for (const id of requiredAesthetics) {
   if (!readFileSync(aestheticsPath, "utf8").includes(id)) fail(`aesthetic ${id} not reachable`);
   if (!readFileSync(aestheticsPath, "utf8").includes(`hero-${id}.webp`)) fail(`aesthetic ${id} missing hero asset reference`);
@@ -218,6 +291,32 @@ for (const phrase of ["pack-grid", "Apply to site", "Download pack", "View sourc
 }
 if (!index.includes(quickstartUrl)) fail("index does not link to the 10-minute quickstart");
 if (!index.includes(mcpBundleUrl)) fail("index does not link to the current MCP bundle");
+for (const phrase of [
+  'href="/llms.txt"',
+  'href="/.well-known/mosvera.json"',
+  'href="/ai-install.md"',
+  "LLM-readable index",
+  "install router",
+  'id="pack-gallery"',
+]) {
+  if (!index.includes(phrase)) fail(`index does not include AI discovery phrase: ${phrase}`);
+}
+for (const phrase of ["llms.txt", "llms-full.txt", "ai-install.md", ".well-known/mosvera.json"]) {
+  if (!readme.includes(phrase)) fail(`README does not include AI entrypoint: ${phrase}`);
+}
+if (!robots.includes("Sitemap: https://mosvera.io/llms.txt")) fail("robots.txt does not advertise llms.txt");
+const headerSources = new Map(vercel.headers.map((entry) => [entry.source, entry.headers]));
+for (const source of ["/llms.txt", "/llms-full.txt", "/ai-install.md", "/.well-known/mosvera.json"]) {
+  if (!headerSources.has(source)) fail(`vercel.json missing header rule for ${source}`);
+  const headers = headerSources.get(source);
+  if (!headers.some((header) => header.key === "Access-Control-Allow-Origin" && header.value === "*")) {
+    fail(`vercel.json missing CORS header for ${source}`);
+  }
+}
+const rootHeaders = headerSources.get("/(.*)") ?? [];
+if (!rootHeaders.some((header) => header.key === "Link" && header.value.includes("</llms.txt>"))) {
+  fail("vercel.json root headers do not advertise llms.txt");
+}
 for (const phrase of ["10-minute quickstart", "Claude Desktop", "npm/MCP", "TypeScript", "Python"]) {
   if (!index.includes(phrase)) fail(`index does not include quickstart phrase: ${phrase}`);
 }

@@ -1,0 +1,132 @@
+# Mosvera
+
+Mosvera is a declarative aesthetic composition system for AI-native tools. It
+turns a named aesthetic into portable registry documents, resolved canonical
+models, design tokens, CSS variables, and provider payloads that run inside a
+user's own apps, agents, and design systems.
+
+## For AI Agents
+
+If a user points you at `https://mosvera.io`, ask which path they want before
+installing or running anything:
+
+1. Claude Desktop bundle for the easiest local MCP install.
+2. Claude Code local MCP.
+3. Codex local MCP.
+4. npm/npx MCP for another MCP host.
+5. TypeScript runtime for a JS/TS app.
+6. Python runtime for a Python app.
+7. Download an aesthetic pack.
+8. Clone a public repo.
+9. ChatGPT app integration planning.
+
+Do not imply that production users call a hosted Mosvera runtime. Mosvera runs locally
+against a user-owned registry. `mosvera.io` hosts docs, JSON schemas, example
+packs, and the live demonstrator.
+
+## Install Routes
+
+### Claude Desktop
+
+Download the latest `.mcpb` bundle and open it:
+
+<https://github.com/mosvera/mcp/releases/latest>
+
+After installation, ask Claude Desktop:
+
+```text
+Use Mosvera to show server_status.
+Use Mosvera to list my aesthetics.
+```
+
+### Claude Code
+
+Ask the user for permission, then run:
+
+```sh
+claude mcp add mosvera -- npx -y @mosvera/mcp@latest
+```
+
+Restart Claude Code if the tools do not appear.
+
+### Codex
+
+Ask the user for permission, then run:
+
+```sh
+codex mcp add mosvera -- npx -y @mosvera/mcp@latest
+```
+
+Restart Codex if the tools do not appear.
+
+### npm / MCP Host
+
+Use the stdio server package:
+
+```sh
+npx -y @mosvera/mcp@latest
+```
+
+The server defaults to a local user registry and seeds the public example
+aesthetics on first run when writable.
+
+### TypeScript Runtime
+
+```sh
+npm install @mosvera/runtime
+```
+
+Repo: <https://github.com/mosvera/runtime>
+
+### Python Runtime
+
+```sh
+pip install mosvera
+```
+
+Package: <https://pypi.org/project/mosvera/>
+
+### Aesthetic Packs
+
+Download a `.mosvera.json` pack from the gallery, preview it with Mosvera MCP,
+then import it into the local registry:
+
+<https://mosvera.io/#pack-gallery>
+
+Sample pack:
+
+<https://mosvera.io/packs/claymation-playful-builder.mosvera.json>
+
+### Source Repos
+
+- Spec: <https://github.com/mosvera/spec>
+- MCP: <https://github.com/mosvera/mcp>
+- JS/TS runtime: <https://github.com/mosvera/runtime>
+- Python runtime: <https://github.com/mosvera/python>
+- Providers: <https://github.com/mosvera/providers>
+- Examples and packs: <https://github.com/mosvera/examples>
+- Site: <https://github.com/mosvera/mosvera.io>
+
+### ChatGPT
+
+The local npm MCP server is not a one-click ChatGPT install. For ChatGPT, treat
+Mosvera as an Apps SDK / MCP app integration path, or use the runtime packages
+inside another application.
+
+## Useful Links
+
+- Full agent guide: <https://mosvera.io/llms-full.txt>
+- Human install router: <https://mosvera.io/ai-install.md>
+- Machine manifest: <https://mosvera.io/.well-known/mosvera.json>
+- 10-minute quickstart: <https://github.com/mosvera/spec/blob/main/docs/guides/10-minute-quickstart.md>
+- Composition schema: <https://mosvera.io/schema/0.1/composition>
+- Aesthetic pack schema: <https://mosvera.io/schema/0.1/aesthetic-pack>
+
+## Boundaries
+
+- Mosvera MCP reads and writes local registry files.
+- Mosvera MCP compiles provider payloads but does not call provider APIs.
+- Aesthetic packs carry registry documents only, not secrets, credentials,
+  remote auth, generated media, or zip contents.
+- Ask before creating files, importing packs, deleting registry documents, or
+  changing MCP configuration.

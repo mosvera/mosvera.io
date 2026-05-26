@@ -1,0 +1,95 @@
+{
+  "name": "Mosvera",
+  "homepage": "https://mosvera.io",
+  "description": "Declarative aesthetic composition for AI-native tools, local registries, design tokens, CSS variables, and provider payloads.",
+  "ai_entrypoints": {
+    "compact": "https://mosvera.io/llms.txt",
+    "full": "https://mosvera.io/llms-full.txt",
+    "install_router": "https://mosvera.io/ai-install.md"
+  },
+  "install": {
+    "claude_desktop": {
+      "kind": "mcpb",
+      "url": "https://github.com/mosvera/mcp/releases/latest",
+      "description": "Download the latest mosvera-mcp .mcpb bundle and open it in Claude Desktop."
+    },
+    "claude_code": {
+      "kind": "stdio_mcp",
+      "command": "claude mcp add mosvera -- npx -y @mosvera/mcp@latest"
+    },
+    "codex": {
+      "kind": "stdio_mcp",
+      "command": "codex mcp add mosvera -- npx -y @mosvera/mcp@latest"
+    },
+    "mcp_npm": {
+      "kind": "stdio_mcp",
+      "command": "npx -y @mosvera/mcp@latest"
+    },
+    "typescript_runtime": {
+      "kind": "package",
+      "command": "npm install @mosvera/runtime"
+    },
+    "python_runtime": {
+      "kind": "package",
+      "command": "pip install mosvera"
+    }
+  },
+  "packages": {
+    "mcp": {
+      "name": "@mosvera/mcp",
+      "version": "0.1.9",
+      "npm": "https://www.npmjs.com/package/@mosvera/mcp",
+      "repo": "https://github.com/mosvera/mcp"
+    },
+    "typescript_runtime": {
+      "name": "@mosvera/runtime",
+      "version": "0.1.2",
+      "npm": "https://www.npmjs.com/package/@mosvera/runtime",
+      "repo": "https://github.com/mosvera/runtime"
+    },
+    "python_runtime": {
+      "name": "mosvera",
+      "version": "0.1.2",
+      "pypi": "https://pypi.org/project/mosvera/",
+      "repo": "https://github.com/mosvera/python"
+    },
+    "providers": {
+      "repo": "https://github.com/mosvera/providers",
+      "search_url": "https://www.npmjs.com/search?q=%40mosvera%2Fprovider"
+    }
+  },
+  "mcp": {
+    "transport": "stdio",
+    "default_registry": "user-owned local registry",
+    "provider_execution": false,
+    "notes": [
+      "Mosvera MCP compiles provider payloads but does not call provider APIs.",
+      "Write tools update local registry files only when the registry is writable.",
+      "Aesthetic packs contain registry documents only."
+    ]
+  },
+  "schemas": {
+    "common": "https://mosvera.io/schema/0.1/common",
+    "template": "https://mosvera.io/schema/0.1/template",
+    "modifier": "https://mosvera.io/schema/0.1/modifier",
+    "palette": "https://mosvera.io/schema/0.1/palette",
+    "composition": "https://mosvera.io/schema/0.1/composition",
+    "capability_manifest": "https://mosvera.io/schema/0.1/capability-manifest",
+    "compliance_vector": "https://mosvera.io/schema/0.1/compliance-vector",
+    "aesthetic_pack": "https://mosvera.io/schema/0.1/aesthetic-pack"
+  },
+  "packs": {
+    "gallery": "https://mosvera.io/#pack-gallery",
+    "examples_repo": "https://github.com/mosvera/examples/tree/main/packs",
+    "sample": "https://mosvera.io/packs/claymation-playful-builder.mosvera.json"
+  },
+  "repos": {
+    "spec": "https://github.com/mosvera/spec",
+    "runtime": "https://github.com/mosvera/runtime",
+    "python": "https://github.com/mosvera/python",
+    "mcp": "https://github.com/mosvera/mcp",
+    "providers": "https://github.com/mosvera/providers",
+    "examples": "https://github.com/mosvera/examples",
+    "site": "https://github.com/mosvera/mosvera.io"
+  }
+}

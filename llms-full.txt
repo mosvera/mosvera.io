@@ -1,0 +1,329 @@
+# Mosvera Agent Reference
+
+This file is the long-form AI-readable reference for `mosvera.io`. Use
+`/llms.txt` first when context is tight. Use this file when a user asks you to
+install, evaluate, configure, or integrate Mosvera.
+
+## What Mosvera Is
+
+Mosvera is a declarative aesthetic composition system. It lets people name an
+aesthetic, keep its source documents in a local registry, resolve those
+documents into a canonical model, and compile the model into portable outputs
+such as design tokens, CSS variables, and provider payloads.
+
+Mosvera is not a hosted runtime. Production usage runs inside the user's own
+apps, agents, design systems, and local files. `mosvera.io` hosts the public
+website, JSON schemas, example packs, and static docs.
+
+## Term Stack
+
+- Named aesthetic: the user-facing id, such as `claymation-playful-builder`.
+- Composition document: the technical document that points to a base template,
+  optional modifiers, palette references, and overrides.
+- Local registry: a user-owned folder containing templates, palettes,
+  modifiers, compositions, manifests, and merge rules.
+- Aesthetic pack: a portable `.mosvera.json` exchange file used for preview,
+  import, export, and sharing.
+- Resolved model: canonical JSON after inheritance, modifiers, and overrides
+  are folded together.
+- Tokens / CSS variables: portable UI-facing output compiled from the resolved
+  model.
+- Provider payload: deterministic provider-specific output compiled from the
+  resolved model. MCP compile does not execute provider APIs.
+
+Do not collapse these words into only "theme" or "style"; Mosvera intentionally
+separates intent, technical documents, exchange files, registries, and compiled
+outputs.
+
+## Agent Behavior
+
+When a user points you at Mosvera:
+
+1. Ask which path they want: Claude Desktop, Claude Code, Codex, npm/MCP,
+   TypeScript, Python, packs, source, or ChatGPT integration planning.
+2. Explain that Mosvera runs locally against a user-owned registry.
+3. Ask for permission before installing MCP servers, importing packs, writing
+   registry documents, or deleting registry documents.
+4. Use `server_status` first after MCP installation.
+5. Use `list_aesthetics` to show available named aesthetics.
+6. Use `preview_aesthetic_import` before `import_aesthetic_pack`.
+7. Use `resolve_aesthetic` and `compile_design_tokens` to prove the installed
+   flow works.
+8. Use `compile_provider_payload` only for deterministic payload compilation;
+   do not claim that MCP called Google, Runway, HeyGen, OpenAI, ElevenLabs,
+   Firefly, Meshy, FLUX, or SDXL.
+
+## Install Decision Tree
+
+### Claude Desktop
+
+Use this path for non-command-line users.
+
+1. Open <https://github.com/mosvera/mcp/releases/latest>.
+2. Download the latest `mosvera-mcp-*.mcpb`.
+3. Open the bundle in Claude Desktop.
+4. In Claude Desktop, ask:
+
+```text
+Use Mosvera to show server_status.
+Use Mosvera to list my aesthetics.
+Use Mosvera to resolve claymation-playful-builder and compile it into CSS variables.
+```
+
+### Claude Code
+
+Ask the user before running:
+
+```sh
+claude mcp add mosvera -- npx -y @mosvera/mcp@latest
+```
+
+Then restart Claude Code if needed and ask it to show Mosvera `server_status`.
+
+### Codex
+
+Ask the user before running:
+
+```sh
+codex mcp add mosvera -- npx -y @mosvera/mcp@latest
+```
+
+Then restart Codex if needed and ask it to show Mosvera `server_status`.
+
+### npm / Generic MCP Host
+
+Run the stdio server directly:
+
+```sh
+npx -y @mosvera/mcp@latest
+```
+
+For a host config, use this shape:
+
+```json
+{
+  "mcpServers": {
+    "mosvera": {
+      "command": "npx",
+      "args": ["-y", "@mosvera/mcp@latest"]
+    }
+  }
+}
+```
+
+Optional registry override:
+
+```sh
+npx -y @mosvera/mcp@latest --registry ./mosvera-registry
+```
+
+### TypeScript / JavaScript Runtime
+
+Install:
+
+```sh
+npm install @mosvera/runtime
+```
+
+Primary flow:
+
+1. Read a local `.mosvera.json` pack.
+2. Validate the pack.
+3. Import it into an in-memory or project registry.
+4. Resolve the entrypoint named aesthetic.
+5. Compile design tokens and CSS variables.
+
+Repo: <https://github.com/mosvera/runtime>
+
+### Python Runtime
+
+Install:
+
+```sh
+pip install mosvera
+```
+
+Primary flow mirrors the TS runtime:
+
+1. Load a `.mosvera.json` pack as a dict.
+2. `validate_aesthetic_pack`.
+3. `import_aesthetic_pack`.
+4. `resolve_aesthetic`.
+5. `compile_design_tokens`.
+6. `to_css_variables`.
+
+Repo: <https://github.com/mosvera/python>
+
+### Aesthetic Packs
+
+The gallery is on the site at:
+
+<https://mosvera.io/#pack-gallery>
+
+Each pack is a same-origin downloadable `.mosvera.json` file, for example:
+
+<https://mosvera.io/packs/claymation-playful-builder.mosvera.json>
+
+Preview before import:
+
+```text
+Use Mosvera to preview importing /path/to/claymation-playful-builder.mosvera.json.
+```
+
+Then import:
+
+```text
+Use Mosvera to import /path/to/claymation-playful-builder.mosvera.json.
+```
+
+Then resolve and compile:
+
+```text
+Use Mosvera to resolve claymation-playful-builder and compile it into CSS variables.
+```
+
+### Source Repos
+
+```sh
+git clone https://github.com/mosvera/spec
+git clone https://github.com/mosvera/runtime
+git clone https://github.com/mosvera/python
+git clone https://github.com/mosvera/mcp
+git clone https://github.com/mosvera/providers
+git clone https://github.com/mosvera/examples
+git clone https://github.com/mosvera/mosvera.io
+```
+
+### ChatGPT
+
+Do not tell users that the local npm MCP package can be installed directly into
+ChatGPT as a one-click local tool. ChatGPT app distribution is a separate Apps
+SDK / MCP app path. If the user wants a ChatGPT-native Mosvera integration,
+frame it as future app work or a custom app integration built from the MCP
+server and runtime packages.
+
+## MCP Tool Surface
+
+Read tools:
+
+- `server_status`: registry path, read/write state, versions, counts, and
+  diagnostics.
+- `list_aesthetics`: list named aesthetics in the active local registry.
+- `get_registry_document`: fetch a template, modifier, palette, composition, or
+  capability manifest.
+- `validate_document`: validate one supplied document.
+- `validate_registry`: validate the active local registry.
+- `validate_aesthetic_pack`: validate an inline or local `.mosvera.json` pack.
+- `preview_aesthetic_import`: preview importing a pack without writing files.
+- `export_aesthetic_pack`: export a named aesthetic and dependencies as a pack.
+- `resolve_aesthetic`: resolve a named or inline composition to canonical JSON.
+- `compile_design_tokens`: compile a named/inline aesthetic or canonical model
+  to design tokens and CSS variables.
+- `compile_provider_payload`: compile a provider payload without network calls.
+- `draft_aesthetic`: draft a composition document without saving it.
+
+Write tools, available when the registry is writable and read-only mode is off:
+
+- `save_aesthetic`
+- `save_registry_document`
+- `delete_registry_document`
+- `write_merge_strategies`
+- `import_aesthetic_pack`
+
+MCP write tools should be treated as local file writes. Ask the user before
+calling them.
+
+## Provider Compile IDs
+
+Mosvera provider adapters are deterministic compilers first. Execution, where a
+provider package supports it, lives in the provider package and requires
+provider credentials outside Mosvera documents.
+
+Known compile ids include:
+
+- `openai-image`
+- `flux-image`
+- `sdxl-image`
+- `heygen-avatar-video`
+- `google-gemini-image`
+- `google-veo-video`
+- `runway-gen4-image`
+- `runway-gen45-video`
+- `elevenlabs-tts`
+- `adobe-firefly-image`
+- `meshy-text-to-3d`
+
+Provider options such as `avatar_id`, `voice_id`, `script`, prompt text,
+duration, model overrides, and reference inputs are provider configuration, not
+Mosvera aesthetic fields.
+
+## Public Packages
+
+- `@mosvera/mcp`: local MCP bridge, current public version `0.1.9`.
+- `@mosvera/runtime`: TypeScript/JavaScript runtime, current public version
+  `0.1.2`.
+- `mosvera`: Python runtime, current public version `0.1.2`.
+- `@mosvera/provider-base`: shared provider contract, current public version
+  `0.1.3`.
+- `@mosvera/provider-openai`, `@mosvera/provider-flux`, and
+  `@mosvera/provider-sdxl`: first image provider line.
+- `@mosvera/provider-google`, `@mosvera/provider-runway`,
+  `@mosvera/provider-elevenlabs`, `@mosvera/provider-firefly`,
+  `@mosvera/provider-meshy`, and `@mosvera/provider-heygen`: multimodal
+  provider line.
+
+## Schema Endpoints
+
+- <https://mosvera.io/schema/0.1/common>
+- <https://mosvera.io/schema/0.1/template>
+- <https://mosvera.io/schema/0.1/modifier>
+- <https://mosvera.io/schema/0.1/palette>
+- <https://mosvera.io/schema/0.1/composition>
+- <https://mosvera.io/schema/0.1/capability-manifest>
+- <https://mosvera.io/schema/0.1/compliance-vector>
+- <https://mosvera.io/schema/0.1/aesthetic-pack>
+
+Schema ids use `https://mosvera.io/schema/0.1/<name>`.
+
+## 25 Public Aesthetic Packs
+
+- `quiet-editorial`
+- `technical-manual`
+- `cinematic-lab`
+- `claymation-playful-builder`
+- `neon-noir-console`
+- `botanical-glasshouse`
+- `lunar-industrial`
+- `ukiyo-e-interface`
+- `bauhaus-signal`
+- `desert-modernist`
+- `alpine-research`
+- `maximalist-zine`
+- `luxury-atelier`
+- `retro-future-terminal`
+- `oceanic-biolume`
+- `brutalist-civic`
+- `soft-focus-wellness`
+- `spacecraft-telemetry`
+- `museum-archive`
+- `arcade-pop`
+- `graphite-studio`
+- `stained-glass-fable`
+- `kinetic-sports-broadcast`
+- `cybernetic-garden`
+- `porcelain-minimal`
+
+The source of truth for gallery packs is:
+
+<https://github.com/mosvera/examples/tree/main/packs>
+
+## Safety Boundaries
+
+- Aesthetic packs do not contain secrets, provider credentials, generated media,
+  remote auth, or zip contents.
+- Registry files should not store secrets or MCP client configuration.
+- MCP provider compilation does not make network calls.
+- Ask before writing to a local registry.
+- Ask before adding MCP servers to Claude Code, Codex, or another host.
+- If a command fails because the MCP server was just installed, advise the user
+  to restart the host and retry.

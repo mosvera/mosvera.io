@@ -34,6 +34,17 @@ The MCP server uses a local user-owned registry. The default Claude Desktop
 path is the `.mcpb` release bundle; npm/npx remains available for developers
 and automation.
 
+## AI Agent Entry Points
+
+- Compact agent index: <https://mosvera.io/llms.txt>
+- Full agent reference: <https://mosvera.io/llms-full.txt>
+- Install router: <https://mosvera.io/ai-install.md>
+- Machine-readable manifest: <https://mosvera.io/.well-known/mosvera.json>
+
+Agents should ask the user which install route they want before running local
+commands. The site advertises `/llms.txt` through HTML metadata and an HTTP
+`Link` header.
+
 ## Verification
 
 ```sh
