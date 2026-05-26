@@ -85,7 +85,7 @@ if (aesthetics.default !== "quiet-editorial") fail("default aesthetic must be qu
 
 function walk(dir, out = []) {
   for (const entry of readdirSync(dir)) {
-    if ([".git", "node_modules", "dist", "coverage"].includes(entry)) continue;
+    if ([".git", ".vercel", "node_modules", "dist", "coverage"].includes(entry)) continue;
     const path = join(dir, entry);
     const stat = statSync(path);
     if (stat.isDirectory()) walk(path, out);
