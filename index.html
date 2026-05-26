@@ -88,15 +88,32 @@
         <img src="/brand/mark.svg" alt="" width="34" height="34" />
         <span>Mosvera</span>
       </a>
-      <nav class="site-nav" aria-label="Primary navigation">
-        <a href="https://github.com/mosvera/spec">Spec</a>
-        <a href="https://github.com/mosvera/runtime">Runtime</a>
-        <a href="https://github.com/mosvera/mcp/releases/latest">MCP</a>
-        <a href="https://github.com/mosvera/examples/tree/main/packs">Packs</a>
-        <a href="/ai-install.md">AI install</a>
-        <a href="https://github.com/mosvera/examples">Examples</a>
-        <a href="/schema/0.1/composition">Schemas</a>
-      </nav>
+      <div class="header-actions">
+        <button
+          class="theme-toggle"
+          id="theme-toggle"
+          type="button"
+          aria-label="Switch to Mosvera Public Dark"
+          title="Switch to Mosvera Public Dark"
+        >
+          <svg class="theme-toggle-sun" aria-hidden="true" viewBox="0 0 24 24">
+            <circle cx="12" cy="12" r="4" />
+            <path d="M12 2v2.5M12 19.5V22M4.93 4.93 6.7 6.7M17.3 17.3l1.77 1.77M2 12h2.5M19.5 12H22M4.93 19.07 6.7 17.3M17.3 6.7l1.77-1.77" />
+          </svg>
+          <svg class="theme-toggle-moon" aria-hidden="true" viewBox="0 0 24 24">
+            <path d="M20.2 14.4A7.3 7.3 0 0 1 9.6 3.8 8.6 8.6 0 1 0 20.2 14.4Z" />
+          </svg>
+        </button>
+        <nav class="site-nav" aria-label="Primary navigation">
+          <a href="https://github.com/mosvera/spec">Spec</a>
+          <a href="https://github.com/mosvera/runtime">Runtime</a>
+          <a href="https://github.com/mosvera/mcp/releases/latest">MCP</a>
+          <a href="https://github.com/mosvera/examples/tree/main/packs">Packs</a>
+          <a href="/ai-install.md">AI install</a>
+          <a href="https://github.com/mosvera/examples">Examples</a>
+          <a href="/schema/0.1/composition">Schemas</a>
+        </nav>
+      </div>
     </header>
 
     <main class="page-shell">
@@ -232,7 +249,7 @@
       <section class="pack-gallery" id="pack-gallery" aria-labelledby="pack-gallery-title">
         <div class="section-heading">
           <p class="eyebrow">Aesthetic packs</p>
-          <h2 id="pack-gallery-title">Browse 26 aesthetics and bring one into your registry.</h2>
+          <h2 id="pack-gallery-title">Browse 27 aesthetics and bring one into your registry.</h2>
           <p>
             Each `.mosvera.json` pack carries a named aesthetic as portable registry documents. The site defaults to the canonical Mosvera public aesthetic, and every tile can be previewed here before you download, import, resolve, or compile it with Mosvera.
           </p>

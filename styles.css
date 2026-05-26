@@ -1,14 +1,14 @@
 :root {
-  --paper: #f7f2e7;
-  --surface: #fffaf0;
-  --surface-alt: #eee3d4;
-  --ink: #211b16;
-  --muted: #665c50;
+  --paper: #f5efe4;
+  --surface: #fffaf2;
+  --surface-alt: #e7dccb;
+  --ink: #201a14;
+  --muted: #62584d;
   --accent: #bd5838;
-  --accent-2: #2e6b5f;
-  --border: #d8c8b6;
-  --code-bg: #181513;
-  --code-ink: #f5ebdd;
+  --accent-2: #2f7f73;
+  --border: #cdbda8;
+  --code-bg: #15110d;
+  --code-ink: #f7ead9;
   --font-display: "Fraunces", Georgia, serif;
   --font-body: "Hanken Grotesk", ui-sans-serif, system-ui, sans-serif;
   --font-mono: "IBM Plex Mono", ui-monospace, SFMono-Regular, Consolas, monospace;
@@ -17,13 +17,13 @@
   --small-size: 0.84rem;
   --space: clamp(1rem, 2vw, 1.6rem);
   --section-gap: clamp(3rem, 8vw, 7rem);
-  --radius: 6px;
-  --shadow: 0 18px 55px rgba(58, 38, 21, 0.16);
-  --motion-duration: 220ms;
-  --hero-saturation: 0.92;
+  --radius: 7px;
+  --shadow: 0 20px 62px rgba(54, 37, 23, 0.17);
+  --motion-duration: 230ms;
+  --hero-saturation: 1.08;
   --hero-contrast: 1.02;
   --hero-blend: normal;
-  --max-width: 1160px;
+  --max-width: 1180px;
 }
 
 * {
@@ -75,6 +75,7 @@ a {
 }
 
 .brand,
+.header-actions,
 .site-nav,
 .action-row {
   display: flex;
@@ -98,6 +99,69 @@ a {
   font-family: var(--font-mono);
   font-size: 0.78rem;
   text-transform: uppercase;
+}
+
+.header-actions {
+  justify-content: flex-end;
+  gap: clamp(0.75rem, 2vw, 1.4rem);
+}
+
+.theme-toggle {
+  width: 2.45rem;
+  height: 2.45rem;
+  display: inline-grid;
+  place-items: center;
+  flex: 0 0 auto;
+  position: relative;
+  border: 1px solid var(--border);
+  border-radius: 999px;
+  background: color-mix(in srgb, var(--surface) 88%, transparent);
+  color: var(--ink);
+  box-shadow: var(--shadow);
+  cursor: pointer;
+  transition:
+    transform var(--motion-duration) ease,
+    background-color var(--motion-duration) ease,
+    color var(--motion-duration) ease;
+}
+
+.theme-toggle:hover,
+.theme-toggle:focus-visible {
+  transform: translateY(-1px);
+}
+
+.theme-toggle svg {
+  width: 1.1rem;
+  height: 1.1rem;
+  grid-area: 1 / 1;
+  fill: none;
+  stroke: currentColor;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  stroke-width: 1.8;
+  transition:
+    opacity var(--motion-duration) ease,
+    transform var(--motion-duration) ease;
+}
+
+.theme-toggle-moon {
+  opacity: 1;
+  transform: rotate(0deg) scale(1);
+}
+
+.theme-toggle-sun {
+  opacity: 0;
+  transform: rotate(-35deg) scale(0.75);
+}
+
+body[data-canonical-scheme="dark"] .theme-toggle-moon {
+  opacity: 0;
+  transform: rotate(35deg) scale(0.75);
+}
+
+body[data-canonical-scheme="dark"] .theme-toggle-sun {
+  opacity: 1;
+  transform: rotate(0deg) scale(1);
 }
 
 .page-shell {
@@ -784,6 +848,7 @@ body[data-aesthetic="claymation-playful-builder"] .command-link.primary {
 
 @media (max-width: 820px) {
   .site-header,
+  .header-actions,
   .site-footer,
   .hero-visual figcaption {
     align-items: flex-start;

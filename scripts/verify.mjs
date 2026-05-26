@@ -22,6 +22,7 @@ const requiredSchemas = {
 
 const requiredAesthetics = [
   "mosvera-public",
+  "mosvera-public-dark",
   "quiet-editorial",
   "technical-manual",
   "cinematic-lab",
@@ -83,7 +84,7 @@ const agentFiles = {
       "Term Stack",
       "MCP Tool Surface",
       "Provider Compile IDs",
-      "26 Public Aesthetic Packs",
+      "27 Public Aesthetic Packs",
       "google-gemini-image",
       "heygen-avatar-video",
       "compile_provider_payload",
@@ -247,8 +248,8 @@ if (existsSync(examplesGalleryPath)) {
     fail("data/aesthetics.json has drifted from ../mosvera-examples/packs/gallery.json");
   }
 }
-if (aesthetics.count !== 26) fail(`gallery count is ${aesthetics.count}, expected 26`);
-if (aesthetics.aesthetics.length !== 26) fail(`gallery has ${aesthetics.aesthetics.length} aesthetics, expected 26`);
+if (aesthetics.count !== 27) fail(`gallery count is ${aesthetics.count}, expected 27`);
+if (aesthetics.aesthetics.length !== 27) fail(`gallery has ${aesthetics.aesthetics.length} aesthetics, expected 27`);
 const ids = new Set(aesthetics.aesthetics.map((aesthetic) => aesthetic.id));
 for (const id of requiredAesthetics) {
   if (!ids.has(id)) fail(`missing v1 aesthetic: ${id}`);
@@ -332,6 +333,11 @@ for (const phrase of ["Preview pack", "Import pack", "Resolve/compile aesthetic"
 for (const phrase of ["pack-grid", "Apply to site", "Download pack", "View source", "data-hex", "color-swatch", "swatch-row"]) {
   if (!index.includes(phrase) && !siteJs.includes(phrase) && !styles.includes(phrase)) {
     fail(`site does not include gallery UI phrase: ${phrase}`);
+  }
+}
+for (const phrase of ["theme-toggle", "Switch to Mosvera Public Dark", "data-canonical-scheme", "mosvera-public-dark"]) {
+  if (!index.includes(phrase) && !siteJs.includes(phrase) && !styles.includes(phrase)) {
+    fail(`site does not include canonical light/dark toggle phrase: ${phrase}`);
   }
 }
 if (!index.includes(quickstartUrl)) fail("index does not link to the 10-minute quickstart");

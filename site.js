@@ -10,6 +10,12 @@ const compositionJson = document.querySelector("#composition-json");
 const compiledTokens = document.querySelector("#compiled-tokens");
 const heroImage = document.querySelector("#hero-image");
 const packGrid = document.querySelector("#pack-grid");
+const themeToggle = document.querySelector("#theme-toggle");
+
+const canonicalThemePair = {
+  light: "mosvera-public",
+  dark: "mosvera-public-dark",
+};
 
 const densityScale = {
   compact: { space: "0.82rem", section: "4rem" },
@@ -184,6 +190,15 @@ function applyAesthetic(aesthetic) {
   }
 
   body.dataset.aesthetic = aesthetic.id;
+  const isCanonicalDark = aesthetic.id === canonicalThemePair.dark;
+  const isCanonicalLight = aesthetic.id === canonicalThemePair.light;
+  body.dataset.canonicalScheme = isCanonicalDark ? "dark" : isCanonicalLight ? "light" : "custom";
+  if (themeToggle) {
+    const next = isCanonicalDark ? "Mosvera Public" : "Mosvera Public Dark";
+    themeToggle.setAttribute("aria-label", `Switch to ${next}`);
+    themeToggle.title = `Switch to ${next}`;
+    themeToggle.setAttribute("aria-pressed", isCanonicalDark ? "true" : "false");
+  }
   select.value = aesthetic.id;
   headline.textContent = aesthetic.canonical.voice.headline;
   modeBody.textContent = aesthetic.canonical.voice.body;
@@ -220,6 +235,12 @@ async function main() {
   select.addEventListener("change", () => {
     const next = aesthetics.get(select.value) ?? aesthetics.get(registry.default);
     applyAesthetic(next);
+  });
+
+  themeToggle?.addEventListener("click", () => {
+    const current = body.dataset.aesthetic;
+    const nextId = current === canonicalThemePair.dark ? canonicalThemePair.light : canonicalThemePair.dark;
+    applyAesthetic(aesthetics.get(nextId) ?? aesthetics.get(registry.default));
   });
 
   window.addEventListener("hashchange", () => {

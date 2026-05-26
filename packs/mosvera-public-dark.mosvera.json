@@ -1,0 +1,70 @@
+{
+  "$schema": "https://mosvera.io/schema/0.1/aesthetic-pack",
+  "description": "The canonical Mosvera public aesthetic tuned for low-light work: ink, warmth, and legible technical depth.",
+  "documents": {
+    "compositions": {
+      "mosvera-public-dark": {
+        "$schema": "https://mosvera.io/schema/0.1/composition",
+        "base": "mosvera-public-dark-base",
+        "id": "mosvera-public-dark"
+      }
+    },
+    "modifiers": {},
+    "palettes": {},
+    "templates": {
+      "mosvera-public-dark-base": {
+        "$schema": "https://mosvera.io/schema/0.1/template",
+        "id": "mosvera-public-dark-base",
+        "imagery": {
+          "alt": "Mosvera Public Dark Mosvera aesthetic thumbnail with dark brand tessera treatment.",
+          "blend": "screen",
+          "contrast": "1.02",
+          "saturation": "1.08",
+          "src": "/assets/aesthetics/hero-mosvera-public-dark.webp",
+          "treatment": "dark_brand_tessera"
+        },
+        "layout": {
+          "density": "comfortable",
+          "max_width": "1180px",
+          "radius": "7px",
+          "shadow": "0 22px 70px rgba(0, 0, 0, 0.38)"
+        },
+        "motion": {
+          "duration": "230ms",
+          "pace": "measured"
+        },
+        "palette": {
+          "accent": "#d66a43",
+          "accent_2": "#4db3a3",
+          "background": "#14110e",
+          "border": "#4b3d31",
+          "code_bg": "#0c0907",
+          "code_ink": "#f9e6c8",
+          "ink": "#f6efe3",
+          "muted": "#c5b8a7",
+          "surface": "#201a15",
+          "surface_alt": "#2b241d"
+        },
+        "typography": {
+          "body": "Hanken Grotesk",
+          "display": "Fraunces",
+          "mono": "IBM Plex Mono",
+          "scale": "editorial"
+        },
+        "voice": {
+          "body": "Mosvera Public Dark keeps the named aesthetic, local registry, pack exchange, and token story intact while shifting the surface into warm ink, rust, teal, and high-contrast code panels.",
+          "eyebrow": "Canonical Mosvera dark aesthetic",
+          "headline": "The same public system, tuned for low-light work."
+        }
+      }
+    }
+  },
+  "entrypoint": {
+    "id": "mosvera-public-dark",
+    "kind": "composition"
+  },
+  "id": "mosvera-public-dark",
+  "kind": "mosvera.aesthetic_pack",
+  "name": "Mosvera Public Dark",
+  "version": "0.1"
+}
