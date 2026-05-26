@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Mosvera</title>
+    <meta
+      name="description"
+      content="Mosvera is a declarative runtime for aesthetic intent in AI-native systems."
+    />
+    <meta property="og:title" content="Mosvera" />
+    <meta
+      property="og:description"
+      content="Aesthetic infrastructure: typed, portable, reviewable, and executable."
+    />
+    <meta property="og:image" content="/assets/mosvera-hero.png" />
+
+    <link rel="icon" href="/brand/favicon.svg" type="image/svg+xml" />
+    <link rel="icon" href="/brand/favicon.ico" sizes="any" />
+    <link rel="apple-touch-icon" href="/brand/apple-touch-icon.png" />
+    <link rel="preload" href="/data/aesthetics.json" as="fetch" crossorigin="anonymous" />
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,650&family=Hanken+Grotesk:wght@400;520;650&family=IBM+Plex+Mono:wght@400;500&display=swap"
+    />
+    <link rel="stylesheet" href="/styles.css" />
+  </head>
+  <body>
+    <header class="site-header" aria-label="Site header">
+      <a class="brand" href="/">
+        <img src="/brand/mark.svg" alt="" width="34" height="34" />
+        <span>Mosvera</span>
+      </a>
+      <nav class="site-nav" aria-label="Primary navigation">
+        <a href="https://github.com/mosvera/spec">Spec</a>
+        <a href="https://github.com/mosvera/runtime">Runtime</a>
+        <a href="https://github.com/mosvera/examples">Examples</a>
+        <a href="/schema/0.1/composition">Schemas</a>
+      </nav>
+    </header>
+
+    <main class="page-shell">
+      <section class="hero" aria-labelledby="hero-title">
+        <div class="hero-copy">
+          <p class="eyebrow" id="mode-eyebrow">Canonical public home</p>
+          <h1 id="hero-title">Aesthetic infrastructure you can inspect.</h1>
+          <p class="lede" id="mode-body">
+            Mosvera turns aesthetic intent into typed, portable, reviewable artifacts that teams can run inside their own platforms.
+          </p>
+
+          <div class="mode-control">
+            <label for="aesthetic-select">Aesthetic</label>
+            <select id="aesthetic-select" name="aesthetic"></select>
+          </div>
+
+          <div class="action-row" aria-label="Primary links">
+            <a class="command-link primary" href="https://github.com/mosvera/spec">Read the spec</a>
+            <a class="command-link" href="https://github.com/mosvera/runtime">Install the runtime</a>
+          </div>
+        </div>
+
+        <figure class="hero-visual">
+          <img src="/assets/mosvera-hero.png" alt="Generated Mosvera tesserae arranged as a physical composition." />
+          <figcaption>
+            <span id="mode-label">Quiet Editorial</span>
+            <span id="mode-summary">A calm public-standard home.</span>
+          </figcaption>
+        </figure>
+      </section>
+
+      <section class="definition-strip" aria-label="Mosvera adoption model">
+        <article>
+          <h2>Declare</h2>
+          <p>Author templates, palettes, modifiers, and compositions as portable JSON documents.</p>
+        </article>
+        <article>
+          <h2>Resolve</h2>
+          <p>Fold inheritance and modifiers into a canonical aesthetic model with explicit precedence.</p>
+        </article>
+        <article>
+          <h2>Compile</h2>
+          <p>Lower that model into your platform: site tokens, design systems, prompts, and provider payloads.</p>
+        </article>
+      </section>
+
+      <section class="proof-layout" aria-labelledby="proof-title">
+        <div class="proof-copy">
+          <p class="eyebrow">Reference demonstrator</p>
+          <h2 id="proof-title">This site consumes the idea it explains.</h2>
+          <p>
+            The selected composition is pre-resolved for this static v1. A small site adapter compiles the canonical model into CSS variables, so the page changes without pretending that production users depend on this domain at runtime.
+          </p>
+        </div>
+
+        <div class="artifact-panel">
+          <div class="artifact-grid">
+            <div>
+              <span class="metric-label">Package</span>
+              <strong>@mosvera/runtime</strong>
+            </div>
+            <div>
+              <span class="metric-label">Schema</span>
+              <strong>/schema/0.1/composition</strong>
+            </div>
+            <div>
+              <span class="metric-label">Demo mode</span>
+              <strong id="metric-mode">quiet-editorial</strong>
+            </div>
+          </div>
+          <pre class="inline-code" id="install-snippet"><code>npm install @mosvera/runtime</code></pre>
+        </div>
+      </section>
+
+      <section class="inspection" aria-label="Aesthetic inspection">
+        <details open>
+          <summary>View composition</summary>
+          <pre><code id="composition-json"></code></pre>
+        </details>
+        <details>
+          <summary>View compiled tokens</summary>
+          <pre><code id="compiled-tokens"></code></pre>
+        </details>
+      </section>
+    </main>
+
+    <footer class="site-footer">
+      <p>Mosvera is brought into your platform. This site is the public reference surface.</p>
+      <a href="https://github.com/mosvera/mosvera.io">View site source</a>
+    </footer>
+
+    <script type="module" src="/site.js"></script>
+  </body>
+</html>

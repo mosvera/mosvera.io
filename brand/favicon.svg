@@ -1,0 +1,15 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 140 140" role="img" aria-label="Mosvera">
+  <title>Mosvera</title>
+  <!-- Favicon = the color mark. Reads cleanly at 16px (two squares + a notch). -->
+  <defs>
+    <clipPath id="fav-back"><rect x="0" y="40" width="100" height="100" rx="3"/></clipPath>
+    <clipPath id="fav-front"><rect x="40" y="0" width="100" height="100" rx="3"/></clipPath>
+  </defs>
+  <rect x="0" y="40" width="100" height="100" rx="3" fill="#1f1a15"/>
+  <rect x="40" y="0" width="100" height="100" rx="3" fill="#c0563a"/>
+  <g clip-path="url(#fav-back)">
+    <g clip-path="url(#fav-front)">
+      <rect x="40" y="40" width="60" height="60" fill="#f5f1e8"/>
+    </g>
+  </g>
+</svg>

@@ -1,0 +1,238 @@
+{
+  "version": "0.1.0",
+  "default": "quiet-editorial",
+  "aesthetics": [
+    {
+      "id": "quiet-editorial",
+      "label": "Quiet Editorial",
+      "summary": "A calm public-standard home: readable, measured, and institutional without feeling sterile.",
+      "composition": {
+        "$schema": "https://mosvera.io/schema/0.1/composition",
+        "id": "quiet-editorial-site",
+        "base": "public-standard",
+        "modifiers": ["editorial-calm", "warm-canonical"],
+        "overrides": {
+          "surface": "documentation_site",
+          "audience": "standards_adopters",
+          "tone": "measured",
+          "density": "comfortable"
+        }
+      },
+      "canonical": {
+        "palette": {
+          "background": "#f7f2e7",
+          "surface": "#fffaf0",
+          "surface_alt": "#eee3d4",
+          "ink": "#211b16",
+          "muted": "#665c50",
+          "accent": "#bd5838",
+          "accent_2": "#2e6b5f",
+          "border": "#d8c8b6",
+          "code_bg": "#181513",
+          "code_ink": "#f5ebdd"
+        },
+        "typography": {
+          "display": "Fraunces",
+          "body": "Hanken Grotesk",
+          "mono": "IBM Plex Mono",
+          "scale": "editorial"
+        },
+        "layout": {
+          "density": "comfortable",
+          "radius": "6px",
+          "shadow": "0 18px 55px rgba(58, 38, 21, 0.16)",
+          "max_width": "1160px"
+        },
+        "motion": {
+          "pace": "steady",
+          "duration": "220ms"
+        },
+        "imagery": {
+          "treatment": "paper_field",
+          "blend": "normal",
+          "saturation": "0.92",
+          "contrast": "1.02"
+        },
+        "voice": {
+          "eyebrow": "Canonical public home",
+          "headline": "Aesthetic infrastructure you can inspect.",
+          "body": "Mosvera turns aesthetic intent into typed, portable, reviewable artifacts that teams can run inside their own platforms."
+        }
+      }
+    },
+    {
+      "id": "technical-manual",
+      "label": "Technical Manual",
+      "summary": "Dense, precise, and engineered for scanning: a spec bench rather than a campaign page.",
+      "composition": {
+        "$schema": "https://mosvera.io/schema/0.1/composition",
+        "id": "technical-manual-site",
+        "base": "public-standard",
+        "modifiers": ["dense-reference", "instrument-panel"],
+        "overrides": {
+          "surface": "technical_reference",
+          "audience": "implementers",
+          "tone": "explicit",
+          "density": "compact"
+        }
+      },
+      "canonical": {
+        "palette": {
+          "background": "#f2f5f1",
+          "surface": "#ffffff",
+          "surface_alt": "#dfe8e2",
+          "ink": "#10211c",
+          "muted": "#50615b",
+          "accent": "#17745f",
+          "accent_2": "#5847a6",
+          "border": "#b9c8c0",
+          "code_bg": "#07130f",
+          "code_ink": "#d9f7ea"
+        },
+        "typography": {
+          "display": "IBM Plex Mono",
+          "body": "Hanken Grotesk",
+          "mono": "IBM Plex Mono",
+          "scale": "compact"
+        },
+        "layout": {
+          "density": "compact",
+          "radius": "2px",
+          "shadow": "0 1px 0 rgba(16, 33, 28, 0.24)",
+          "max_width": "1220px"
+        },
+        "motion": {
+          "pace": "quick",
+          "duration": "120ms"
+        },
+        "imagery": {
+          "treatment": "schematic",
+          "blend": "multiply",
+          "saturation": "0.72",
+          "contrast": "1.14"
+        },
+        "voice": {
+          "eyebrow": "Implementation reference",
+          "headline": "Same site, compiled as a technical surface.",
+          "body": "This mode compresses the interface, raises structure, and makes the underlying Mosvera artifacts feel like a spec you can build from."
+        }
+      }
+    },
+    {
+      "id": "cinematic-lab",
+      "label": "Cinematic Lab",
+      "summary": "High-contrast, image-forward, and expressive while keeping the schema surface legible.",
+      "composition": {
+        "$schema": "https://mosvera.io/schema/0.1/composition",
+        "id": "cinematic-lab-site",
+        "base": "public-standard",
+        "modifiers": ["darkroom-contrast", "research-lab"],
+        "overrides": {
+          "surface": "visual_research_lab",
+          "audience": "creative_systems_teams",
+          "tone": "dramatic",
+          "density": "spacious"
+        }
+      },
+      "canonical": {
+        "palette": {
+          "background": "#12100f",
+          "surface": "#1e1a18",
+          "surface_alt": "#2f2524",
+          "ink": "#f6eee6",
+          "muted": "#c7b8aa",
+          "accent": "#e05b45",
+          "accent_2": "#7cc9d8",
+          "border": "#4c3b39",
+          "code_bg": "#080707",
+          "code_ink": "#f8e6c8"
+        },
+        "typography": {
+          "display": "Fraunces",
+          "body": "Hanken Grotesk",
+          "mono": "IBM Plex Mono",
+          "scale": "large"
+        },
+        "layout": {
+          "density": "spacious",
+          "radius": "8px",
+          "shadow": "0 28px 80px rgba(0, 0, 0, 0.42)",
+          "max_width": "1240px"
+        },
+        "motion": {
+          "pace": "cinematic",
+          "duration": "320ms"
+        },
+        "imagery": {
+          "treatment": "spotlit",
+          "blend": "screen",
+          "saturation": "1.08",
+          "contrast": "1.22"
+        },
+        "voice": {
+          "eyebrow": "Visual research mode",
+          "headline": "The standard can carry drama without losing structure.",
+          "body": "Cinematic Lab pushes contrast, scale, and image presence while the same composition, schema, and token panes stay readable."
+        }
+      }
+    },
+    {
+      "id": "claymation-playful-builder",
+      "label": "Claymation Playful Builder",
+      "summary": "Tactile, warm, handmade, and constructive: a proof that Mosvera can carry real personality, not just themes.",
+      "composition": {
+        "$schema": "https://mosvera.io/schema/0.1/composition",
+        "id": "claymation-playful-builder-site",
+        "base": "public-standard",
+        "modifiers": ["tactile-model-shop", "playful-builder"],
+        "overrides": {
+          "surface": "interactive_demo",
+          "audience": "builders_and_designers",
+          "tone": "warm_constructive",
+          "density": "roomy"
+        }
+      },
+      "canonical": {
+        "palette": {
+          "background": "#f6e7cc",
+          "surface": "#fff3dc",
+          "surface_alt": "#ead2ad",
+          "ink": "#2a2118",
+          "muted": "#695946",
+          "accent": "#d45f3f",
+          "accent_2": "#2f8f9d",
+          "border": "#c99a68",
+          "code_bg": "#2b2119",
+          "code_ink": "#ffe3bc"
+        },
+        "typography": {
+          "display": "Fraunces",
+          "body": "Hanken Grotesk",
+          "mono": "IBM Plex Mono",
+          "scale": "friendly"
+        },
+        "layout": {
+          "density": "roomy",
+          "radius": "8px",
+          "shadow": "0 18px 0 rgba(96, 63, 39, 0.26)",
+          "max_width": "1160px"
+        },
+        "motion": {
+          "pace": "bouncy",
+          "duration": "260ms"
+        },
+        "imagery": {
+          "treatment": "tabletop_model",
+          "blend": "normal",
+          "saturation": "1.12",
+          "contrast": "0.96"
+        },
+        "voice": {
+          "eyebrow": "Tactile builder mode",
+          "headline": "Same architecture, built out of warm clay and shop light.",
+          "body": "This mode keeps the spec serious while the surface becomes handmade, constructive, and a little mischievous."
+        }
+      }
+    }
+  ]
+}
