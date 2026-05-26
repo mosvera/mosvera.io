@@ -38,6 +38,7 @@
         <a href="https://github.com/mosvera/spec">Spec</a>
         <a href="https://github.com/mosvera/runtime">Runtime</a>
         <a href="https://github.com/mosvera/mcp/releases/latest">MCP</a>
+        <a href="https://github.com/mosvera/spec/tree/main/examples/packs">Packs</a>
         <a href="https://github.com/mosvera/examples">Examples</a>
         <a href="/schema/0.1/composition">Schemas</a>
       </nav>
@@ -49,7 +50,7 @@
           <p class="eyebrow" id="mode-eyebrow">Canonical public home</p>
           <h1 id="hero-title">Aesthetic infrastructure you can inspect.</h1>
           <p class="lede" id="mode-body">
-            Mosvera turns aesthetic intent into typed, portable, reviewable artifacts that teams can run inside their own platforms.
+            Mosvera turns aesthetic intent into typed, portable, reviewable artifacts that teams run inside their own apps, agents, and design systems.
           </p>
 
           <div class="mode-control">
@@ -60,7 +61,7 @@
           <div class="action-row" aria-label="Primary links">
             <a class="command-link primary" href="https://github.com/mosvera/spec">Read the spec</a>
             <a class="command-link" href="https://github.com/mosvera/mcp/releases/download/v0.1.5/mosvera-mcp-0.1.5.mcpb">Install Claude bundle</a>
-            <a class="command-link" href="https://www.npmjs.com/package/@mosvera/runtime">Install the runtime</a>
+            <a class="command-link" href="https://raw.githubusercontent.com/mosvera/spec/main/examples/packs/claymation-playful-builder.mosvera.json">Download sample pack</a>
           </div>
         </div>
 
@@ -104,7 +105,7 @@
           <article>
             <span class="metric-label">JS/TS engine</span>
             <h3>@mosvera/runtime</h3>
-            <p>Validate Mosvera documents, resolve compositions, and produce the canonical model inside a JavaScript or TypeScript app.</p>
+            <p>Load a local registry, resolve named aesthetics, and produce tokens inside a JavaScript or TypeScript app.</p>
           </article>
           <article>
             <span class="metric-label">Python engine</span>
@@ -119,7 +120,12 @@
           <article>
             <span class="metric-label">Tool surface</span>
             <h3>@mosvera/mcp</h3>
-            <p>Run a local Claude Desktop-friendly MCP server that lists, resolves, saves, and compiles aesthetics from your registry.</p>
+            <p>Run a local Claude Desktop-friendly MCP server that lists, resolves, saves, exports, and imports aesthetics from your registry.</p>
+          </article>
+          <article>
+            <span class="metric-label">Exchange file</span>
+            <h3>.mosvera.json</h3>
+            <p>Share a named aesthetic as a portable pack that carries registry documents, not secrets or hosted runtime state.</p>
           </article>
           <article>
             <span class="metric-label">Public contract</span>
@@ -137,7 +143,7 @@
             The selected composition is pre-resolved for this static v1. A small site adapter compiles the canonical model into CSS variables, so the page changes without pretending that production users depend on this domain at runtime.
           </p>
           <p>
-            Agents use Mosvera the same way: the MCP server runs locally, reads and writes a user-owned registry, and never sends provider requests by itself.
+            Agents use Mosvera the same way: the MCP server runs locally, reads and writes a user-owned registry, imports and exports aesthetic packs, and never sends provider requests by itself.
           </p>
         </div>
 
@@ -158,7 +164,8 @@
           </div>
           <pre class="inline-code" id="install-snippet"><code>npm install @mosvera/runtime
 pip install mosvera
-npm install -g @mosvera/mcp</code></pre>
+npm install -g @mosvera/mcp
+curl -O https://raw.githubusercontent.com/mosvera/spec/main/examples/packs/claymation-playful-builder.mosvera.json</code></pre>
         </div>
       </section>
 
