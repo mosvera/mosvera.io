@@ -23,6 +23,10 @@ const requiredAesthetics = [
   "claymation-playful-builder",
 ];
 
+const requiredPackUrls = requiredAesthetics.map(
+  (id) => `https://raw.githubusercontent.com/mosvera/spec/main/examples/packs/${id}.mosvera.json`,
+);
+
 const forbiddenPaths = [
   ".envrc",
   ".remember",
@@ -123,6 +127,13 @@ for (const file of walk(root)) {
 const index = readFileSync(join(root, "index.html"), "utf8");
 for (const id of requiredAesthetics) {
   if (!readFileSync(aestheticsPath, "utf8").includes(id)) fail(`aesthetic ${id} not reachable`);
+  if (!index.includes(id)) fail(`index does not include pack gallery aesthetic: ${id}`);
+}
+for (const url of requiredPackUrls) {
+  if (!index.includes(url)) fail(`index does not include pack download URL: ${url}`);
+}
+for (const phrase of ["Preview pack", "Import pack", "Resolve/compile aesthetic"]) {
+  if (!index.includes(phrase)) fail(`index does not include pack workflow phrase: ${phrase}`);
 }
 for (const path of [
   "/schema/0.1/composition",

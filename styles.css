@@ -246,6 +246,7 @@ summary:hover {
 
 .definition-strip,
 .package-guide,
+.pack-gallery,
 .proof-layout,
 .inspection {
   display: grid;
@@ -258,6 +259,8 @@ summary:hover {
 
 .definition-strip article,
 .package-grid article,
+.pack-grid article,
+.pack-instructions,
 .artifact-panel,
 .inspection details {
   border: 1px solid var(--border);
@@ -310,6 +313,100 @@ summary:hover {
   margin: 0;
   color: var(--muted);
   font-size: 1rem;
+}
+
+.section-heading {
+  display: grid;
+  gap: 0.85rem;
+}
+
+.section-heading h2 {
+  max-width: 13ch;
+}
+
+.section-heading p {
+  max-width: 70ch;
+  color: var(--muted);
+}
+
+.pack-gallery {
+  gap: calc(var(--space) * 1.15);
+}
+
+.workflow-strip {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 0.75rem;
+  font-family: var(--font-mono);
+  font-size: var(--small-size);
+  text-transform: uppercase;
+}
+
+.workflow-strip span {
+  min-height: 2.6rem;
+  display: flex;
+  align-items: center;
+  border-block: 1px solid var(--border);
+  color: var(--accent);
+}
+
+.pack-grid {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 1rem;
+}
+
+.pack-grid article {
+  min-width: 0;
+  display: grid;
+  grid-template-rows: auto 1fr auto;
+  gap: 1rem;
+  overflow: hidden;
+}
+
+.pack-grid img {
+  width: 100%;
+  aspect-ratio: 3 / 2;
+  object-fit: cover;
+  border-bottom: 1px solid var(--border);
+  filter: saturate(var(--hero-saturation)) contrast(var(--hero-contrast));
+}
+
+.pack-grid article > div {
+  display: grid;
+  gap: 0.65rem;
+  padding-inline: clamp(1rem, 2vw, 1.2rem);
+}
+
+.pack-grid h3 {
+  margin: 0;
+  font-family: var(--font-display);
+  font-size: clamp(1.35rem, 2vw, 1.8rem);
+  line-height: 1.05;
+}
+
+.pack-grid p {
+  margin: 0;
+  color: var(--muted);
+  font-size: 0.98rem;
+}
+
+.pack-actions {
+  padding-block: 0 1rem;
+}
+
+.pack-actions .command-link {
+  justify-content: center;
+  width: 100%;
+  min-height: 2.55rem;
+  padding: 0.55rem 0.75rem;
+  font-size: 0.92rem;
+}
+
+.pack-instructions {
+  display: grid;
+  gap: 0.85rem;
+  padding: clamp(1rem, 3vw, 1.4rem);
 }
 
 .proof-layout {
@@ -424,6 +521,8 @@ body[data-aesthetic="claymation-playful-builder"] .command-link.primary {
   .hero,
   .definition-strip,
   .package-grid,
+  .pack-grid,
+  .workflow-strip,
   .proof-layout,
   .artifact-grid,
   .inspection {
