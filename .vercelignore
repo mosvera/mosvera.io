@@ -6,5 +6,6 @@ node_modules
 .env.*
 .envrc
 .direnv
+.vercel
 .local
 .remember

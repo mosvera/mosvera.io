@@ -6,6 +6,7 @@ coverage/
 .env.*
 .envrc
 .direnv/
+.vercel/
 .local/
 .remember/
 *.log
