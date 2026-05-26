@@ -1,0 +1,70 @@
+{
+  "$schema": "https://mosvera.io/schema/0.1/aesthetic-pack",
+  "description": "The canonical Mosvera public-site aesthetic: warm, technical, open, and quietly distinctive.",
+  "documents": {
+    "compositions": {
+      "mosvera-public": {
+        "$schema": "https://mosvera.io/schema/0.1/composition",
+        "base": "mosvera-public-base",
+        "id": "mosvera-public"
+      }
+    },
+    "modifiers": {},
+    "palettes": {},
+    "templates": {
+      "mosvera-public-base": {
+        "$schema": "https://mosvera.io/schema/0.1/template",
+        "id": "mosvera-public-base",
+        "imagery": {
+          "alt": "Mosvera Public Mosvera aesthetic thumbnail with brand tessera treatment.",
+          "blend": "normal",
+          "contrast": "1.02",
+          "saturation": "1.08",
+          "src": "/assets/aesthetics/hero-mosvera-public.webp",
+          "treatment": "brand_tessera"
+        },
+        "layout": {
+          "density": "comfortable",
+          "max_width": "1180px",
+          "radius": "7px",
+          "shadow": "0 20px 62px rgba(54, 37, 23, 0.17)"
+        },
+        "motion": {
+          "duration": "230ms",
+          "pace": "measured"
+        },
+        "palette": {
+          "accent": "#bd5838",
+          "accent_2": "#2f7f73",
+          "background": "#f5efe4",
+          "border": "#cdbda8",
+          "code_bg": "#15110d",
+          "code_ink": "#f7ead9",
+          "ink": "#201a14",
+          "muted": "#62584d",
+          "surface": "#fffaf2",
+          "surface_alt": "#e7dccb"
+        },
+        "typography": {
+          "body": "Hanken Grotesk",
+          "display": "Fraunces",
+          "mono": "IBM Plex Mono",
+          "scale": "editorial"
+        },
+        "voice": {
+          "body": "Mosvera turns named aesthetic intent into portable packs, local registries, design tokens, CSS variables, and provider payloads without a hosted runtime dependency.",
+          "eyebrow": "Canonical Mosvera public aesthetic",
+          "headline": "Aesthetic infrastructure you can bring into your own tools."
+        }
+      }
+    }
+  },
+  "entrypoint": {
+    "id": "mosvera-public",
+    "kind": "composition"
+  },
+  "id": "mosvera-public",
+  "kind": "mosvera.aesthetic_pack",
+  "name": "Mosvera Public",
+  "version": "0.1"
+}

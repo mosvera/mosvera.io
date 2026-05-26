@@ -285,8 +285,9 @@ Mosvera aesthetic fields.
 
 Schema ids use `https://mosvera.io/schema/0.1/<name>`.
 
-## 25 Public Aesthetic Packs
+## 26 Public Aesthetic Packs
 
+- `mosvera-public`
 - `quiet-editorial`
 - `technical-manual`
 - `cinematic-lab`

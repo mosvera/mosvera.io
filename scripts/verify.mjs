@@ -21,6 +21,7 @@ const requiredSchemas = {
 };
 
 const requiredAesthetics = [
+  "mosvera-public",
   "quiet-editorial",
   "technical-manual",
   "cinematic-lab",
@@ -82,7 +83,7 @@ const agentFiles = {
       "Term Stack",
       "MCP Tool Surface",
       "Provider Compile IDs",
-      "25 Public Aesthetic Packs",
+      "26 Public Aesthetic Packs",
       "google-gemini-image",
       "heygen-avatar-video",
       "compile_provider_payload",
@@ -246,13 +247,13 @@ if (existsSync(examplesGalleryPath)) {
     fail("data/aesthetics.json has drifted from ../mosvera-examples/packs/gallery.json");
   }
 }
-if (aesthetics.count !== 25) fail(`gallery count is ${aesthetics.count}, expected 25`);
-if (aesthetics.aesthetics.length !== 25) fail(`gallery has ${aesthetics.aesthetics.length} aesthetics, expected 25`);
+if (aesthetics.count !== 26) fail(`gallery count is ${aesthetics.count}, expected 26`);
+if (aesthetics.aesthetics.length !== 26) fail(`gallery has ${aesthetics.aesthetics.length} aesthetics, expected 26`);
 const ids = new Set(aesthetics.aesthetics.map((aesthetic) => aesthetic.id));
 for (const id of requiredAesthetics) {
   if (!ids.has(id)) fail(`missing v1 aesthetic: ${id}`);
 }
-if (aesthetics.default !== "quiet-editorial") fail("default aesthetic must be quiet-editorial");
+if (aesthetics.default !== "mosvera-public") fail("default aesthetic must be mosvera-public");
 
 const heroImages = new Set();
 for (const aesthetic of aesthetics.aesthetics) {
@@ -410,7 +411,7 @@ for (const path of [
   "/data/aesthetics.json",
   "/site.js",
   "/styles.css",
-  "/assets/aesthetics/hero-quiet-editorial.webp",
+  "/assets/aesthetics/hero-mosvera-public.webp",
 ]) {
   if (!index.includes(path)) fail(`index does not reference ${path}`);
 }

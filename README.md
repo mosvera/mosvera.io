@@ -8,10 +8,13 @@ re-theme immediately. Production adopters bring Mosvera into their own
 platforms; this repo is the reference public example, not a hosted runtime
 dependency.
 
-The 25-pack gallery source of truth lives in
+The 26-pack gallery source of truth lives in
 [`mosvera/examples`](https://github.com/mosvera/examples/tree/main/packs).
 This repo mirrors `packs/gallery.json` and the gallery WebP assets into the
 static deploy bundle.
+
+`mosvera-public` is the canonical public-site aesthetic and the default live
+mode. The rest of the gallery remains a set of exchangeable example packs.
 
 ## Local Preview
 
