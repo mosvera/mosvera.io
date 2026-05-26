@@ -141,6 +141,18 @@ if (!index.includes(quickstartUrl)) fail("index does not link to the 10-minute q
 for (const phrase of ["10-minute quickstart", "Claude Desktop", "npm/MCP", "TypeScript", "Python"]) {
   if (!index.includes(phrase)) fail(`index does not include quickstart phrase: ${phrase}`);
 }
+for (const phrase of [
+  "What just happened?",
+  "local registry",
+  "named aesthetic",
+  "composition document",
+  "aesthetic pack",
+  "tokens",
+  "CSS variables",
+  "no hosted runtime dependency",
+]) {
+  if (!index.includes(phrase)) fail(`index does not include explainer phrase: ${phrase}`);
+}
 for (const path of [
   "/schema/0.1/composition",
   "/data/aesthetics.json",

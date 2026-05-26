@@ -248,6 +248,7 @@ summary:hover {
 .quickstart-callout,
 .package-guide,
 .pack-gallery,
+.happened-explainer,
 .proof-layout,
 .inspection {
   display: grid;
@@ -263,6 +264,7 @@ summary:hover {
 .package-grid article,
 .pack-grid article,
 .pack-instructions,
+.happened-definitions article,
 .artifact-panel,
 .inspection details {
   border: 1px solid var(--border);
@@ -433,6 +435,97 @@ summary:hover {
   padding: clamp(1rem, 3vw, 1.4rem);
 }
 
+.happened-explainer {
+  gap: calc(var(--space) * 1.15);
+}
+
+.happened-flow {
+  display: grid;
+  grid-template-columns: repeat(5, minmax(0, 1fr));
+  gap: 0.75rem;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  counter-reset: happened-step;
+}
+
+.happened-flow li {
+  min-width: 0;
+  display: grid;
+  gap: 0.5rem;
+  align-content: start;
+  position: relative;
+  padding-block: 0.85rem;
+  border-block: 1px solid var(--border);
+  counter-increment: happened-step;
+}
+
+.happened-flow li::before {
+  content: counter(happened-step, decimal-leading-zero);
+  color: var(--accent);
+  font-family: var(--font-mono);
+  font-size: var(--small-size);
+}
+
+.happened-flow li::after {
+  content: "";
+  width: min(2.2rem, 42%);
+  height: 1px;
+  position: absolute;
+  top: 1.35rem;
+  right: 0.25rem;
+  background: var(--border);
+}
+
+.happened-flow li:last-child::after {
+  content: none;
+}
+
+.happened-flow span {
+  color: var(--muted);
+  font-family: var(--font-mono);
+  font-size: var(--small-size);
+  text-transform: uppercase;
+}
+
+.happened-flow strong {
+  overflow-wrap: anywhere;
+  font-size: clamp(1rem, 1.4vw, 1.12rem);
+}
+
+.happened-definitions {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 1rem;
+}
+
+.happened-definitions article {
+  min-width: 0;
+  display: grid;
+  gap: 0.65rem;
+  padding: clamp(1rem, 2vw, 1.25rem);
+}
+
+.happened-definitions h3 {
+  margin: 0;
+  color: var(--accent-2);
+  font-family: var(--font-mono);
+  font-size: clamp(0.98rem, 1.7vw, 1.15rem);
+  line-height: 1.2;
+}
+
+.happened-definitions p {
+  margin: 0;
+  color: var(--muted);
+  font-size: 0.98rem;
+}
+
+.happened-definitions code {
+  overflow-wrap: anywhere;
+  font-family: var(--font-mono);
+  font-size: 0.92em;
+}
+
 .proof-layout {
   grid-template-columns: minmax(0, 0.9fr) minmax(300px, 1.1fr);
   align-items: start;
@@ -548,10 +641,21 @@ body[data-aesthetic="claymation-playful-builder"] .command-link.primary {
   .package-grid,
   .pack-grid,
   .workflow-strip,
+  .happened-flow,
+  .happened-definitions,
   .proof-layout,
   .artifact-grid,
   .inspection {
     grid-template-columns: 1fr;
+  }
+
+  .happened-flow li::after {
+    width: 1px;
+    height: 0.8rem;
+    top: auto;
+    right: auto;
+    bottom: -0.8rem;
+    left: 0;
   }
 
   h1 {

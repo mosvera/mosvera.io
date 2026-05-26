@@ -223,6 +223,66 @@ Use Mosvera to resolve claymation-playful-builder and compile it into CSS variab
         </div>
       </section>
 
+      <section class="happened-explainer" id="what-just-happened" aria-labelledby="happened-title">
+        <div class="section-heading">
+          <p class="eyebrow">What just happened?</p>
+          <h2 id="happened-title">You moved an aesthetic from a file into something your tools can use.</h2>
+          <p>
+            Mosvera did not ask your site or agent to depend on a hosted runtime. It used portable files and local tools to turn a named aesthetic into outputs your own platform can consume.
+          </p>
+        </div>
+
+        <ol class="happened-flow" aria-label="Mosvera pack to tokens flow">
+          <li>
+            <span>Pack</span>
+            <strong>.mosvera.json</strong>
+          </li>
+          <li>
+            <span>Local registry</span>
+            <strong>your files</strong>
+          </li>
+          <li>
+            <span>Named aesthetic</span>
+            <strong>claymation-playful-builder</strong>
+          </li>
+          <li>
+            <span>Resolved model</span>
+            <strong>canonical JSON</strong>
+          </li>
+          <li>
+            <span>Tokens / CSS variables</span>
+            <strong>usable output</strong>
+          </li>
+        </ol>
+
+        <div class="happened-definitions">
+          <article>
+            <h3>local registry</h3>
+            <p>A user-owned folder where Mosvera stores templates, palettes, modifiers, composition documents, and merge rules.</p>
+          </article>
+          <article>
+            <h3>named aesthetic</h3>
+            <p>The friendly id you ask for, like <code>claymation-playful-builder</code>.</p>
+          </article>
+          <article>
+            <h3>composition document</h3>
+            <p>The technical document that points to a base template, optional modifiers, and overrides.</p>
+          </article>
+          <article>
+            <h3>aesthetic pack</h3>
+            <p>The portable pack exchange file used to preview, import, and export a named aesthetic.</p>
+          </article>
+          <article>
+            <h3>tokens / CSS variables</h3>
+            <p>The compiled output a website, app, agent, or design system can apply.</p>
+          </article>
+          <article>
+            <h3>no hosted runtime dependency</h3>
+            <p><code>mosvera.io</code> hosts docs, schemas, and examples. Production usage runs inside your own tools.</p>
+          </article>
+        </div>
+      </section>
+
       <section class="proof-layout" aria-labelledby="proof-title">
         <div class="proof-copy">
           <p class="eyebrow">Reference demonstrator</p>
