@@ -12,6 +12,7 @@ const requiredSchemas = {
   modifier: "https://mosvera.io/schema/0.1/modifier",
   palette: "https://mosvera.io/schema/0.1/palette",
   "capability-manifest": "https://mosvera.io/schema/0.1/capability-manifest",
+  "aesthetic-pack": "https://mosvera.io/schema/0.1/aesthetic-pack",
   "compliance-vector": "https://mosvera.io/schema/0.1/compliance-vector",
 };
 
